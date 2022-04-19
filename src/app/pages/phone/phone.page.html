@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>phone</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <div class="bloc_phone" *ngIf="current_view == 0">
+    <div class="header_otp">
+      <p class="content_phone">
+        <ion-icon name="phone-portrait" class="icon_otp"></ion-icon>
+      </p>
+      <p class="label_welcome">
+        Bienvenue,
+      </p>
+      <p class="sub_welcome">
+        Entrez votre numéro de telephone. Nous vous enverons un code pour verification.
+      </p>
+    </div>
+    <div class="content-card">
+      <ion-card padding>
+        <ion-card-content>
+          <ion-input type="number"  class="input_otp" [(ngModel)]="phoneNumber" autofocus="true"></ion-input>
+          <div class="content_btn">
+            <ion-button class="btn_next"  (click)="signIn(phoneNumber)">Continuer</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div id="recaptcha-container" style="display: none;"></div>
+  </div>
+
+  <div class="block_verification" *ngIf="current_view != 0">
+    <div class="header_otp">
+      <p class="content_phone">
+        <ion-icon name="keypad-outline" class="icon_otp"></ion-icon>
+      </p>
+      <p class="label_welcome">
+        Vérification
+      </p>
+      <p class="sub_welcome sub_w_veif">
+        Entrez le code reçu au numéro {{phoneNumber}} dans le champs ci-dessous
+      </p>
+    </div>
+    <div class="content-card">
+      <ion-card padding>
+        <ion-card-content class="carte">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="2" class="col_verif">
+                <ion-input  type="text"  class="input_veri"  [(ngModel)]="char1" maxlength="1" autofocus="true"></ion-input>
+              </ion-col>
+              <ion-col size="2">
+                <ion-input type="text" class="input_veri"  [(ngModel)]="char2" maxlength="1"></ion-input>
+              </ion-col>
+              <ion-col size="2">
+                <ion-input type="text" class="input_veri" [(ngModel)]="char3" maxlength="1"></ion-input>
+              </ion-col>
+              <ion-col size="2">
+                <ion-input type="text" class="input_veri" [(ngModel)]="char4" maxlength="1"></ion-input>
+              </ion-col>
+              <ion-col size="2">
+                <ion-input type="text" class="input_veri" [(ngModel)]="char5" maxlength="1"></ion-input>
+              </ion-col>
+              <ion-col size="2">
+                <ion-input type="text" class="input_veri" [(ngModel)]="char6" maxlength="1"></ion-input>
+              </ion-col>
+            </ion-row>
+            </ion-grid>
+          <div class="content_btn">
+            <ion-button class="btn_next" (click)="verifyOtp()">Vérifier</ion-button>
+          </div>
+          <!-- <p class="code_unreceive">code non reçu ? <span class="link_resend">Renvoyer</span> dans {{timer}}s</p> -->
+          <p class="code_unreceive">code non reçu ? <span class='link_resend" disabled="timer != "00" ' (click)="signIn(phoneNumber)" style="text-decoration:underline !important">Renvoyer</span> <span *ngIf='timerEnd == false '> dans {{timer}}s </span></p>
+
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

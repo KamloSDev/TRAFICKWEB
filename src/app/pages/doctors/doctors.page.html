@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title_page">Medecins</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="toggleSearchBar()">
+        <ion-icon slot="icon-only" ios="search-outline" md="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="presentAlertRadio()">
+        <ion-icon slot="icon-only" ios="options-outline" md="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="searchbar == 0" style="margin-top:-5px;padding-top:8px;">
+    <div class="header_docs">
+      <input placeholder="Recherche..." class="searchbar_doc" [(ngModel)]="searchQuery" (keyup)="search($event)">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="actual_planing" *ngIf="this.filterType == 3">
+    <div class="scrollmenu">
+      <div class="up_item_spec" >
+            <p class="titre_spec active" (click)="setStyle(-1, 'all')" id="-1" >Toutes</p>
+      </div>
+      <div class="up_item_spec" *ngFor="let item of specialites ;let i = index">
+        <!-- <ion-card class="item_specialite item_specialite2" routerLink="/specialites"> -->
+            <p class="titre_spec" (click)="setStyle(i,item.nom)" id={{i}} >{{item.nom}}</p>
+        <!-- </ion-card> -->
+      </div>
+    </div>
+  </div>
+  <div class="main_ras" *ngIf="this.doctors.length == 0" >
+    <p class="content_icon_ras">
+      <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+    </p>
+    <p class="msg_ras">
+      Aucun medecin
+    </p>
+  </div>
+  <div class="content_docs">
+    <ion-card class="item_doc1"  *ngFor="let item of doctors" (click)="goDoctor(item)">
+      <img src={{this.general.AVATARS_ROOT+item.avatar}} class="avatar_doc">
+      <div class="content_infos_doc">
+        <p class="username_doc"><span *ngIf="item.niveau_id == 1">Dr </span>{{item.prenom }} {{item.nom}}</p>
+        <p class="titre_doc">{{item.specialite}} </p>
+        <div class="content_stars" *ngIf="item.note == 0">
+          <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+        </div>
+        <div class="content_stars" *ngIf="item.note > 0">
+          <ion-icon name="star" class="icon_stars star_livre"  ></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="item.note == 0"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 1"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 2"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 2"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 3"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 3"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 4"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 4"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre outline" *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 5"></ion-icon>
+          <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 5"></ion-icon>
+        </div>
+      </div>
+  </ion-card>
+  </div>
+</ion-content>

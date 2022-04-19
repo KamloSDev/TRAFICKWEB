@@ -1,0 +1,21 @@
+
+<ion-content>
+  <div #map class="map" id="map">
+
+  </div>
+
+
+    <ion-fab vertical="bottom" horizontal="start"  slot="fixed" *ngIf="this.mode == 1" >
+      <ion-fab-button color="danger" (click)="dismiss()"><ion-icon name="close"></ion-icon></ion-fab-button>
+    </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start"  slot="fixed" *ngIf="this.mode == 0" >
+    <ion-fab-button size="small" color="light">
+      <ion-icon color="danger"  name="ellipsis-vertical-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button color="danger" (click)="dismiss()"><ion-icon name="close"></ion-icon></ion-fab-button>
+      <ion-fab-button color="success" (click)="selectLocation()"><ion-icon name="save-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

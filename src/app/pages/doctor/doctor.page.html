@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color:#00B3B7;"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fond_profil">
+    <div class="header_doctor">
+      <div class="content_avatar_doc">
+        <img src={{this.general.AVATARS_ROOT+doctor.avatar}} class="avatar_doc">
+      </div>
+      <p class="username_doc"><span *ngIf="doctor.niveau_id == 1 || doctor.niveau_id == 2 ">Dr </span> {{doctor.prenom }} {{doctor.nom}} </p>
+      <p class="arobase" >@{{doctor.username}}</p>
+      <p class="titre_doc" *ngIf="doctor.specialite != null">{{doctor.specialite}}</p>
+      <div class="content_stars">
+        <ion-icon name="star-outline" class="star_doctor" (click)="saveEvaluation(1)" *ngIf="giftedNote == 0"></ion-icon>
+        <ion-icon name="star" class="star_doctor" (click)="saveEvaluation(1)" *ngIf="giftedNote >= 1"></ion-icon>
+        <ion-icon name="star-outline" class="star_doctor" (click)="saveEvaluation(2)" *ngIf="giftedNote == 0 || giftedNote < 2"></ion-icon>
+        <ion-icon name="star" class="star_doctor" (click)="saveEvaluation(2)" *ngIf="giftedNote >= 2"></ion-icon>
+        <ion-icon name="star-outline" class="star_doctor" (click)="saveEvaluation(3)" *ngIf="giftedNote == 0 || giftedNote < 3"></ion-icon>
+        <ion-icon name="star" class="star_doctor" (click)="saveEvaluation(3)" *ngIf="giftedNote >= 3"></ion-icon>
+        <ion-icon name="star-outline" class="star_doctor" (click)="saveEvaluation(4)" *ngIf="giftedNote == 0 || giftedNote < 4"></ion-icon>
+        <ion-icon name="star" class="star_doctor" (click)="saveEvaluation(4)" *ngIf="giftedNote >= 4"></ion-icon>
+        <ion-icon name="star-outline" class="star_doctor" (click)="saveEvaluation(5)" *ngIf="giftedNote == 0 || giftedNote < 5"></ion-icon>
+        <ion-icon name="star" class="star_doctor"  *ngIf="giftedNote >= 5"></ion-icon>
+        <!-- <span class="nb_votes">(200 votes)</span> -->
+      </div>
+      <div class="content_buttons">
+        <ion-grid class="grid">
+          <ion-row class="row">
+            <ion-col size="2"></ion-col>
+            <ion-col size="3">
+              <!-- <ion-fab class="fab" [routerLink]="['/discussion/', this.general.currentUser.username, doctor.username, doctor]"></ion-fab> -->
+              <ion-fab class="fab" (click)="goDiscussion()" >
+                <ion-fab-button class="fab_btn">
+                  <ion-icon name="chatbox-ellipses" class="icon_fab"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+            <!-- <ion-col size="2">
+              <ion-fab class="fab">
+                <ion-fab-button class="fab_btn">
+                  <ion-icon name="logo-whatsapp" class="icon_fab icon_zap"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col> -->
+            <ion-col size="3">
+              <ion-fab class="fab" (click)="this.general.showAlert('Pas encore disponible')">
+                <ion-fab-button class="fab_btn">
+                  <ion-icon name="call" class="icon_fab"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+            <ion-col size="3">
+               <!-- <ion-fab class="fab" (click)="this.general.showAlert('Pas encore disponible')"> -->
+              <ion-fab class="fab" (click)="launchCall('Appel Entrant de :'+user.nom,'Tapez sur ce message pour repondre', doctor.telephone)">
+                <ion-fab-button class="fab_btn">
+                  <ion-icon name="videocam" class="icon_fab"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+      <div class="bloc_resume">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" class="col_review">
+              <p class="number" *ngIf="this.nbConsultation > 0"><span *ngIf="this.nbConsultation<10">0</span>{{this.nbConsultation}}</p>
+              <p class="number" *ngIf="this.nbConsultation == 0">Aucune</p>
+              <p class="label_number">consultations</p>
+            </ion-col>
+            <ion-col size="4" class="col_review">
+              <p class="number" *ngIf="doctor.prix != null">{{doctor.prix}}<span class="small">F</span></p>
+              <p class="number" *ngIf="doctor.prix == null">0<span class="small">F</span></p>
+              <p class="label_number">la consultation</p>
+            </ion-col>
+            <ion-col size="4" class="col_review">
+              <p class="number"><span *ngIf="doctor.experience<10">0</span>{{doctor.experience}}<span class="small">ans</span></p>
+              <p class="label_number">d'experience</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="bloc_about">
+        <p class="title_doctor header_hours">
+          Horaires
+        </p>
+        <div class="actual_planing" *ngIf="this.full_debut.length>0">
+          <p class="line_current">De&nbsp;&nbsp; <span class="span_day">{{this.full_debut}}</span> à <span class="span_day">{{this.full_fin}}</span></p>
+          <p class="line_current">De &nbsp;
+            <span class="span_day">
+              <ion-icon name="time-outline" class="icon_time"></ion-icon>{{this.full_hd}}&nbsp;
+            </span> à&nbsp;
+            <span class="span_day">
+              <ion-icon name="time-outline" class="icon_time"></ion-icon>{{full_hf}}
+            </span>
+          </p>
+        </div>
+        <div class="actual_planing planing_undefined" *ngIf="this.full_debut.length == 0">
+          <p class="title_current title_error">Planing non défini </p>
+        </div>
+
+        <p class="title_doctor">
+          A Propos
+        </p>
+        <p class="texte_about">
+          {{doctor.about}}
+        </p>
+      </div>
+      <div class="content_btn_rdv" *ngIf="this.doctor.id != this.general.currentUser.id ">
+        <ion-button class="btn_rdv" (click)="presentAlertRadio()" *ngIf="(this.lastDemande == null || this.lastDemande.statut == 1 )">
+          Demandez une consultation
+          <ion-icon slot="start" name="calendar-outline"></ion-icon>
+        </ion-button>
+        <ion-button class="btn_rdv" (click)="this.general.showAlert('Pas encore disponible')" *ngIf="(this.lastDemande != null && this.lastDemande.statut == 0 && this.lastDemande.type == 0 )">
+          Commençez la consultation
+          <ion-icon slot="start" name="videocam"></ion-icon>
+        </ion-button>
+        <ion-button class="btn_rdv" (click)="this.general.showAlert('Pas encore disponible')" *ngIf="(this.lastDemande != null && this.lastDemande.statut == 0 && this.lastDemande.type == 1 )">
+          Commençez la consultation
+          <ion-icon slot="start" name="call" ></ion-icon>
+        </ion-button>
+        <ion-button class="btn_rdv" (click)="this.general.showAlert('Pas encore disponible')" *ngIf="(this.lastDemande != null && this.lastDemande.statut == 3)">
+          procédez au paiemnt
+          <ion-icon slot="start" name="wallet-outline" ></ion-icon>
+        </ion-button>
+        <ion-button class="btn_rdv btn_cancel" (click)="deleteDemande()" *ngIf="(this.lastDemande != null && this.lastDemande.statut == -1)">
+          Annuler ma demande
+          <ion-icon slot="start" name="close" ></ion-icon>
+        </ion-button>
+      </div>
+
+
+    </div>
+  </div>
+
+</ion-content>

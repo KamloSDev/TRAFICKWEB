@@ -1,0 +1,107 @@
+<ion-app  >
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" >
+      <div class="menu_main">
+        <div class="fond_menu">
+          <div class="header_menu">
+            <div class="content_avatar">
+              <img *ngIf="this.general.currentUser != null" src={{this.general.AVATARS_ROOT+this.general.currentUser.avatar}} class="avatar_menu" >
+            </div>
+            <div class="content_user">
+              <p class="username_menu" *ngIf="this.general.currentUser != null">{{this.general.currentUser.username}}</p>
+              <p class="phone_menu" *ngIf="this.general.currentUser != null && this.general.currentUser.email != null">{{this.general.currentUser.email}}</p>
+              <p class="phone_menu" *ngIf="this.general.currentUser != null && this.general.currentUser.email == null">{{this.general.currentUser.telephone}}</p>
+            </div>
+          </div>
+          <div class="footer_menu">
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/tab-nav/home" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="home-outline" class="icon_menu" ></ion-icon>
+                <ion-label class="label_menu">
+                  Accueil
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/profil" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="person-circle-outline" class="icon_menu" ></ion-icon>
+                <!-- <ion-icon slot="start" name="bar-chart-outline" class="icon_menu" ></ion-icon> -->
+                <ion-label class="label_menu">
+                  Profil
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/dashboard" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="stats-chart-outline" class="icon_menu" ></ion-icon>
+                <ion-label class="label_menu">
+                  Dashboard
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/discussions" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="chatbox-ellipses-outline" class="icon_menu" ></ion-icon>
+                <ion-label class="label_menu">
+                  Discussions
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/consultations" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="pulse-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  Consultations
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLink="/carnet" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="folder-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  Mon Carnet
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item  routerLinkActive="active" routerDirection="root" detail="false" (click)="showAlertInfo('Pas encore disponible !!!')">
+                <ion-icon slot="start" name="mail-unread-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  Contact
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item routerLinkActive="active" routerDirection="root" detail="false" (click)="showAlertInfo('Pas encore disponible !!!')">
+                <ion-icon slot="start" name="information-circle-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  A Propos
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false">
+              <ion-item  routerLinkActive="active" routerDirection="root" detail="false"  (click)="showAlertInfo('Pas encore disponible !!!')">
+                <ion-icon slot="start" name="help-circle-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  Aide
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle autoHide="false" class="last">
+              <ion-item routerLink="/login" routerLinkActive="active" routerDirection="root" detail="false">
+                <ion-icon slot="start" name="power-outline" class="icon_menu"></ion-icon>
+                <ion-label class="label_menu">
+                  Déconnexion
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
+        </div>
+      </div>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  </ion-split-pane>
+
+</ion-app>

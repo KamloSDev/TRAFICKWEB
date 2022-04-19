@@ -1,0 +1,92 @@
+<ion-content class="content">
+  <ion-fab vertical="top" horizontal="start" slot="fixed" class="transparent_fab"  >
+    <ion-fab-button class="btn_fab " (click)="goBack()" >
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class="header_connexion header_connexion--structure ">
+    <div class="content_icon content_icon--structure" (click)="AccessGallery()">
+      <ion-icon name="camera-outline" class="icon_header "  *ngIf="this.base64Image == null" ></ion-icon>
+      <img src={{this.base64Image}} *ngIf="this.base64Image != null" width="100%" height="100%" class="logo_structure_add" />
+      <p class="label_connexion label_logo">Logo</p>
+    </div>
+  </div>
+
+  <div class="content_form content_form_insc" id="part1" *ngIf="this.part == 1">
+    <ion-item class="item_connexion">
+      <ion-icon name="grid-outline" class="icon_connexion icon_connexion--categorie"></ion-icon>
+      <!-- <ion-label class="label_select label_select--structure">
+        Catégorie</ion-label> -->
+      <!-- <ion-select placeholder="Catégorie" class="select_titre select_titre--structure my-class5" value="" [(ngModel)]="this.type_id">
+        <ion-select-option *ngFor="let item of structuresCategories" value={{item.id}}  >{{item.libele}}</ion-select-option>
+      </ion-select> -->
+      <select placeholder="Catégorie" class="select_titre select_titre--structure my-class5 select " value="" [(ngModel)]="this.type_id">
+        <option  value="0"  disabled>Categorie</option>
+        <option *ngFor="let item of structuresCategories" value={{item.id}}  >{{item.libele}}</option>
+      </select>
+    </ion-item>
+    <div class="item_connexion">
+      <ion-icon name="home-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nom de la structure" [(ngModel)]="nom" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="locate-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Ville" [(ngModel)]="ville" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="call-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Telephone 1" type="number" [(ngModel)]="telephone1" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="call-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Telephone 2" type="number" [(ngModel)]="telephone2" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="mail-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Email" [(ngModel)]="email" class="input_connexion"></ion-input>
+    </div>
+    <!-- <div class="item_connexion no_border">
+      <span class="label_sexe">Sexe</span>
+      <div class="content_radio">
+        <div class="left_radio">
+          <input type="radio" id="M" value="M" name="rd" class="icon_radio" [(ngModel)]="sexe">&nbsp;
+            <label for="M" class="label_rdio">Masculin</label>
+        </div>
+        <div class="right_radio">
+          <input type="radio" id="dewey" name="rd"  value="F" class="icon_radio" [(ngModel)]="sexe">&nbsp;
+          <label for="dewey" class="label_rdio">Feminin</label>
+        </div>
+      </div>
+    </div> -->
+  <!-- </div>
+  <div class="content_form content_form_insc" id="part2" *ngIf="part == 2" > -->
+    <div class="item_connexion">
+      <ion-icon name="compass-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Adresse" [(ngModel)]="localisation" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="link-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="URL de votre site web" [(ngModel)]="url" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion content_textarea ">
+      <textarea placeholder="Brève presentation" rows="4" [(ngModel)]="description" class="input_connexion textarea_structure"></textarea>
+    </div>
+    <div class="item_connexion no_border content_textarea">
+      <span class="label_sexe label_map_question">Géolocaliser la structure?</span>
+      <div class="content_radio content_radio--structure">
+        <div class="left_radio">
+          <input type="radio" id="o" value="o" name="rd" class="icon_radio" (click)="openMap()" >&nbsp;
+            <label for="M" class="label_rdio label_rdio--structure">Oui</label>
+        </div>
+        <div class="right_radio">
+          <input type="radio" id="n" name="rd" value="F" class="icon_radio" (click)="this.isGeolocated = 1;" checked>&nbsp;
+          <label for="dewey" class="label_rdio label_rdio--structure">Non</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content_btn content_btn_insc">
+    <ion-button class="btn_connexion btn_insc btn_save_structure" (click)="control()">Enregistrer</ion-button>
+  </div>
+  <!-- <p class="label_kein_account">Déjà membre ? <span class="link_ka" routerLink="/login">Connectez-vous</span></p> -->
+</ion-content>

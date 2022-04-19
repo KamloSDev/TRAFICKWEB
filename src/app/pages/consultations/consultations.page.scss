@@ -1,0 +1,122 @@
+.content_consultations{
+  --padding-top: 15px;;
+}
+.item_consultations{
+  width:100%;
+  // border:1px solid red;
+  border-bottom:1px solid #DDD;
+  // margin-top:10px;
+  padding:30px;
+  padding-bottom:0px !important;
+  padding-top:10px;
+  // background: red;
+}
+.header_cons{
+  width:100%;
+  border:px solid blue;
+  display: inline-block;
+}
+.num_cons, .statut{
+margin: 0;
+// border:1px solid green;
+}
+.num_cons{
+  float:left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.statut{
+  float: right;
+  // border:1px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  background: #F8D7DA;
+  border-radius: 15px;;
+  padding:1px 8px 0px 8px;
+  color:#975057;
+  font-style: italic;
+}
+// .attente{
+
+// }
+.confirme{
+  color:#306C3E;
+  background: #D4EDDA;
+}
+.attente{
+  color:#8C6C10;
+  background: #FFF3CD;
+}
+.doctor_cons{
+  border:px solid red;
+  margin:0 ;
+  font-family: 'Poppins', sans-serif;
+  font-size:13px;
+}
+.doctor_name{
+  color:#00B3B7;
+  font-weight: 500;
+  // text-decoration: underline;
+  text-transform: capitalize;
+}
+.date_cons{
+  margin-top: -5px;;
+}
+.btn_footer_cons{
+  background:#2AACFF ;
+  color:white;
+  padding:6px 10px 6px 10px;
+  border-radius:15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  // float:left;
+  margin-left:5px;
+}
+.btn_start{
+  background:#00B3B7 ;
+}
+.btn_cancel{
+  background: #eb445a;
+  padding-bottom:7px;
+}
+.icon_btn_cons{
+  font-size: 14px;
+  margin-bottom: -1px;
+  margin-right:2px;
+}
+.icon_resume{
+  margin-bottom: -2px;;
+  font-size:15px;
+}
+.icon_camera{
+  margin-bottom: -4px;;
+  margin-left:3px;
+  font-size:17px;
+}
+.icon_cancel{
+  margin-bottom: -4px;;
+}
+.label_btn{
+  text-transform: capitalize;
+}
+.actions_cons{
+  border:px solid red;
+  // display: inline-block;
+  width:100%;
+  text-align: left;
+  padding-left: 0px;
+  margin-top:5px;
+  margin-bottom:0px;
+}
+.btn_cancel{
+  background:#F8D7DA;
+  color:#9D1C24;
+}
+.non_confirme{
+  background: #D1ECF1;
+  color:#36747F;
+}

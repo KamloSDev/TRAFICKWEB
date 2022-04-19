@@ -1,0 +1,487 @@
+ion-toolbar {
+  // position: absolute;
+
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // --background: transparent;
+  color:white;
+}
+.item_discussion{
+  width:100%;
+  max-height:90px;
+  // background: green;;
+  border-bottom: 1px solid #DDD;;
+  padding-right: 15px;;
+  position: relative
+}
+
+.item_header{
+  border:0px;
+  margin-top:5px;
+}
+.grid_disc{
+  // background:red;
+  height:100%;
+  --padding-top: 0px !important;
+}
+.row_disc{
+  // background: blue;
+  height:100%;
+  --padding-top: 0px !important;
+}
+.left_disc{
+  // border:1px solid green;
+  height:100%;
+  text-align: center;
+}
+.left_header{
+  padding-right: 0px !important;
+  // border:1px solid red;
+  text-align: right;;
+}
+.right_disc{
+  height:100%;
+  background:white;
+  padding-bottom: 5px;
+}
+
+.avatar_disc{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  margin:0 auto !important;
+}
+.avatar_header{
+  width:40px;
+  height:40px;
+}
+.avatar_discussion{
+  width:40px;
+  height:40px;
+  position: absolute;
+    bottom: 0;
+}
+.header_item_disc{
+  width:100%;
+  display: inline-block;
+
+}
+.action_patients{
+  display: flex;
+  justify-content: center;
+}
+.right_patients .header_item_disc{
+  margin-bottom: -5px;
+}
+.username_disc, .msg_overview{
+  width:100%;
+  margin:0;
+
+  font-family: 'Poppins', sans-serif;
+}
+.email_structure{
+  margin-bottom: 5px;
+}
+.date_disc{
+  float:right;
+  border:px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-size:13px;
+  text-align: right;
+  color:#00B3B7;
+  width:39%;
+  margin:0px;
+}
+.title_user_disc{
+  width:100%;
+  border:px solid red;
+  text-align:left;
+  margin-top:2px;
+  padding-left:2px;
+}
+.username_disc{
+  font-size: 15px;
+  font-weight: 600;
+  float:left;
+  width:100%;
+  // border:1px solid red;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.5em;
+  white-space: nowrap;
+}
+.username_header{
+  width:100%;
+  border:px solid red !important;
+  padding-left:2px;
+}
+ion-segment{
+  // border:1px solid red;
+  // background:#E5F3F6;
+  padding-top:5px;
+  padding:0px;
+  height:20px !important;
+
+}
+.label_btn_segment{
+  // color:white;
+  font-weight: 500;
+  border:px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color:white;
+  text-transform: capitalize;
+  --indicator-color: white !important;
+}
+
+ion-segment-button{
+  --indicator-color: white !;
+}
+
+
+
+
+.item_consultations{
+  max-width:100%;
+  // border:1px solid red;
+  border-bottom:1px solid #DDD;
+  // margin-top:10px;
+  padding:30px;
+  padding-bottom:0px !important;
+  padding-top:10px;
+  // background: red;
+}
+.header_cons{
+  width:100%;
+  border:px solid blue;
+  display: inline-block;
+}
+.num_cons, .statut{
+margin: 0;
+// border:1px solid green;
+}
+.num_cons{
+  float:left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.statut{
+  float: right;
+  // border:1px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  background: #F8D7DA;
+  border-radius: 15px;;
+  padding:1px 8px 0px 8px;
+  color:#975057;
+  font-style: italic;
+}
+.confirme{
+  color:#306C3E;
+  background: #D4EDDA;
+}
+.attente{
+  color:#8C6C10;
+  background: #FFF3CD;
+}
+.doctor_cons{
+  border:px solid red;
+  margin:0 ;
+  font-family: 'Poppins', sans-serif;
+  font-size:13px;
+}
+.doctor_name{
+  color:#00B3B7;
+  font-weight: 500;
+  // text-decoration: underline;
+  text-transform: capitalize;
+}
+.date_cons{
+  margin-top: -5px;;
+}
+.btn_footer_cons{
+  background:#2AACFF ;
+  color:white;
+  padding:6px 10px 6px 10px;
+  border-radius:15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  // float:left;
+  margin-left:5px;
+  margin-top:5px;
+}
+.btn_start{
+  background:#00B3B7 ;
+}
+.btn_cancel{
+  background: #eb445a;
+  padding-bottom:7px;
+}
+.icon_btn_cons{
+  font-size: 14px;
+  margin-bottom: -1px;
+  margin-right:2px;
+}
+.icon_resume{
+  margin-bottom: -2px;;
+  font-size:15px;
+}
+.icon_camera{
+  margin-bottom: -4px;;
+  margin-left:3px;
+  font-size:17px;
+}
+.icon_cancel{
+  margin-bottom: -4px;;
+}
+.label_btn{
+  text-transform: capitalize;
+}
+.actions_cons{
+  border:px solid red;
+  // display: inline-block;
+  width:100%;
+  text-align: left;
+  padding-left: 0px;
+  margin-top:5px;
+  margin-bottom:0px;
+}
+.searchbar_doc{
+  --border-radius:20px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+  margin-bottom:10px;
+}
+.bloc_consultations{
+  // border:1px solid red !important;
+  overflow-y: scroll;
+  padding-top:10px;
+}
+.header_docs{
+  // border:1px solid blue;
+  margin-top:10px;
+  border-bottom: 1px solid #DDD;
+}
+ion-buttons{
+  padding-top:5px;
+  // border:1px solid red;
+  max-width:100%;
+  height:auto;
+}
+
+
+// .item_discussion{
+//   width:100%;
+//   max-height:90px;
+//   // background: green;;
+//   border-bottom: 1px solid #DDD;;
+//   padding-right: 15px;;
+//   position: relative
+// }
+.item_patient{
+  // max-height: 140px !important;
+  max-height: unset !important;
+}
+.right_patients{
+  // border-bottom: 1px solid blue;;
+  padding-bottom: 0px;
+  // background: blue;;
+  // max-height: 120px !important;;
+  // max-height:100px;
+}
+.item_header{
+  border:0px;
+  margin-top:5px;
+}
+.grid_disc{
+  // background:red;
+  height:100%;
+  --padding-top: 0px !important;
+}
+.row_disc{
+  // background: blue;
+  height:100%;
+  --padding-top: 0px !important;
+}
+.left_disc{
+  // border:1px solid green;
+  height:100%;
+  text-align: center;
+}
+.left_header{
+  padding-right: 0px !important;
+  // border:1px solid red;
+  text-align: right;;
+}
+.right_disc{
+  height:100%;
+  background:white;
+  // border-bottom: 1px solid #DDD;;
+  padding-bottom: 5px;
+
+}
+.avatar_disc{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  margin:0 auto !important;
+}
+.msg_overview{
+  width:100%;
+  border:px solid red;
+  font-size: 14px;
+  font-weight: 400;
+  // height:42px;
+  overflow-y: hidden;
+  line-height: 14px;;
+  margin-top:0px;
+  text-align: left;
+
+}
+.date_cons_pat{
+  float:left;
+  border:px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-size:13px;
+  text-align: left;
+  color:#00B3B7 !important;
+  // width:39%;
+  margin:0px;
+  // border:1px solid red;
+}
+.label_date{
+  float:left;
+  margin-right:2px;
+}
+.titre_dates{
+  width:100%;
+  text-align: left;
+  color:#00B3B7 !important;
+  font-size:11px;
+  padding-left:10px;
+  margin-top:15px;
+  margin-bottom:0px;
+}
+.option{
+  color:#00B3B7 !important;
+}
+.actions_cons{
+  // border:1px solid red;
+  padding-left:0px;
+  text-align: left;
+
+}
+.action_patients{
+  margin-bottom:15px !important;
+  // border:1px solid red;
+  // background:green;
+}
+.date_patient{
+  // border:1px solid red;
+}
+.bloc_patients{
+  padding-top:10px;
+}
+.bloc_planing{
+  // border:1px solid red;
+  padding:15px;
+  font-family: 'Poppins', sans-serif  !important;
+}
+.label_date{
+  font-family: 'Poppins', sans-serif  !important;
+  font-weight: 400;
+}
+.select{
+  // border:1px solid red;
+  // --color:red;
+}
+.btn_fab{
+  --background: #00B3B7;
+  margin-right:15px;
+  margin-bottom:15px;
+}
+#ion-sel-0-lbl{
+  // border:1px solid red !important;
+  color:black !important;
+}
+.select-icon{
+  // color:red !important;
+}
+
+.content_btn{
+  width:100%;
+  // border:1px solid red;
+  padding-left:0px;
+  padding-right:0px;
+  margin-top:15px;
+}
+.btn_connexion{
+  width:100%;
+  height:45px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  --background: #047CB8;
+  color:#0383C2;
+  --background:white;
+  margin-top:10px;
+  box-shadow: 0px 0px 0px 0px;
+  font-size: 14px;;
+  --background: #047CB8;
+  color:white;
+  --background:#00B3B7;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.actual_planing{
+  width:100%;
+  padding:10px;
+  background:rgb(205, 249, 250);
+  background:rgb(193, 249, 250);
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+  font-size:14px;
+  display: inline-block;
+  padding-bottom:15px;
+  padding-left:15px;
+}
+.line_current{
+  width:100%;
+  margin:0;
+  float: left;;
+}
+.span_day{
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.icon_time{
+  font-size:15px;
+  color:#00B3B7;
+  margin-bottom:-3px;
+  margin-right:3px;
+}
+.title_current{
+  // margin:0;
+  // border-bottom:1px solid #DDD;
+  // text-transform: uppercase;;
+  margin-bottom:0px;
+  margin-top:5px;
+  float:left;
+  width:80%;
+}
+.content_icon_close{
+  float:right;
+  width:20%;
+  text-align: right;;
+  margin:0;
+  margin-top:3px;
+}
+.icon_close{
+  font-size:17px !important;
+  // color:orange;
+}

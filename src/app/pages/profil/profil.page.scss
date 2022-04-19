@@ -1,0 +1,220 @@
+.content_profil{
+  // padding:15px;
+
+}
+.item_profil{
+  width:100%;
+  // background:#F3F5F8;
+  display: inline-block;
+  border:1px solid #06B6BD;
+  padding:5px;
+  height:45px;
+}
+.content_label{
+  border:px solid red;
+  width:60px;
+  float:left;
+  width:100px;
+}
+.label_profil{
+  margin:0;
+  width:100%;
+  line-height:30px;
+  color:#06B6BD;
+}
+.input_profil{
+  border:px solid red;
+  height:35px;
+  border-left:1px solid #06B6BD;
+  text-transform: capitalize;
+  padding-left:10px;
+}
+.content_input{
+  border:px solid green;
+  float:left;
+}
+.start{
+  float:right;
+  color:red;
+  font-weight: 800;;
+}
+
+.header{
+  width:105%;
+  margin-left:-5px !important;
+  height:190px;
+  background: #06B6BD;;;
+  background: #00B3B7;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+}
+ion-toolbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  --background: transparent;
+  --color: white;
+}
+.title_profil{
+  width:100%;
+  text-align:center;
+  margin:0;
+  float:left;
+  color:white;
+  text-transform: uppercase;
+  // font-weight: 900;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:20px;
+  margin-top:35px;
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.state{
+  width:100%;
+  text-align:center;
+  color:white;
+  font-style: italic;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  float:left;
+  margin-top:10px !important;
+}
+.text_state{
+  border:1px solid white;
+  // padding: 5px;;
+  border-radius:15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: white;;
+  color:#00B3B7;
+  padding-bottom: 3px;;
+  padding-top: 3px;;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.content_avatar{
+  // border:1px solid red;
+  margin:0 auto !important;
+  height:100px;
+  width:100px;
+  background:white;
+
+}
+.bloc_avatar{
+  // border:1px solid red;
+  margin-top:-100px !important;
+  width:90%;
+  height:150px;
+  background:blue;
+  text-align:center !important;
+  // display: inline-block;;
+}
+.content_form{
+  padding:8px;
+  // border:1px solid red;
+  margin-top:-45px;
+  padding-top:0px;
+}
+ion-item{
+
+}
+.label_form{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#00B3B7;
+}
+.icon_form{
+  color:#00B3B7;
+  border:px solid red;
+}
+.input_form{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+.content_button{
+  width:100%;
+  margin-top:20px;
+  text-align: center;;
+  margin-bottom: 20px;;
+  // position:fixed;
+  // bottom:0;
+}
+.button_save{
+  height:45px;
+  margin:0 auto;
+  --border-radius:150px !important;
+  text-transform: uppercase;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left: 5px;;
+  padding-right: 5px;
+  font-weight: 400;
+  --background:#00B3B7;
+  width:190px;
+  // font-size:16px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+.content_date{
+  width:100%;
+  border:px solid red;
+  text-align:center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  margin-top:30px;
+  margin-bottom: 20px;;
+}.date_carnet{
+  background:white;
+  // background: whitesmoke;
+  color:#00B3B7;
+  border:1px solid #00B3B7;
+  border-radius:10px;
+  padding:3px 8px 3px 8px;
+  text-transform: capitalize;
+  // box-shadow: 1px 2px white;
+}
+
+
+.alert-wrapper {
+  background: #e5e5e5;
+}
+
+.label_select{
+  font-family: 'Poppins', sans-serif !important;
+  color:#00B3B7;
+  font-size:13px;
+}
+.select_titre{
+  color:black !important;
+  font-size:14px !important;
+}
+
+.avatar_profil{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: black;;
+}
+.texte_resume{
+  border:1px solid #DDD;
+  height: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+  font-size:13px;
+  padding:10px;
+  margin-bottom:10px;
+  margin-top:-5px;
+  // border:1px solid red;
+}
+.titre_resume{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color:#00B3B7;
+}

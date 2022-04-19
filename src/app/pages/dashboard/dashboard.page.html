@@ -1,0 +1,252 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title_page">Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon slot="icon-only" ios="search-outline" md="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" ios="options-outline" md="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar style="margin-top:-5px;">
+    <ion-segment [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+      <ion-segment-button value="consultations">
+        <ion-label class="label_btn_segment">Consultations</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="structures">
+        <ion-label class="label_btn_segment">Structures</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="planing">
+        <ion-label class="label_btn_segment">Planing</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-toolbar>
+  <div class="header_docs">
+    <ion-searchbar placeholder="Recherche..." class="searchbar_doc"></ion-searchbar>
+  </div>
+</ion-toolbar> -->
+
+<ion-content>
+  <!-- <div style="text-align:center;">
+    <div style="width:auto;margin:0 auto; border:1px solid red;display: inline-block;">
+      <img src="../../assets/img/avatar.jfif" class="avatar_disc" style="float:left;">
+      <div style="border:1px solid red;width:auto;float:left;">
+        <p class="username_disc username_header" style="width:100%;border:1px solid green;float:left;text-align: left;">Mr Kaplan</p>
+        <p class="date_disc title_user_disc" style="width:auto;border:1px solid green;float:left;">Ophtamologue</p>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'consultations'">
+      <div class="bloc_consultations">
+        <div class="header_docs" *ngIf="searchbar == 0">
+          <ion-searchbar placeholder="Recherche..." class="searchbar_doc"></ion-searchbar>
+        </div>
+        <div class="main_ras" *ngIf="this.demandes.length == 0" >
+          <p class="content_icon_ras">
+            <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+          </p>
+          <p class="msg_ras">
+            Aucune consultation
+          </p>
+        </div>
+        <div *ngFor="let item of demandes">
+          <div class="item_consultations"  >
+            <div class="header_cons">
+              <p class="num_cons">Consultation N°L000{{item.id}}</p>
+              <span class="statut" *ngIf="item.statut == 1">Passée</span>
+              <span class="statut confirme" *ngIf="item.statut == 0">Ouvert</span>
+              <span class="statut attente" *ngIf="item.statut == 3">Non Payée</span>
+            </div>
+            <p class="doctor_cons date_cons">
+              <span *ngIf="item.statut == 0 || item.statut == 3 || item.statut == -1">Demandée le </span>
+              <span *ngIf="item.statut == 1">Effectuée le </span>
+               <span class="doctor_name"> {{item.date | date:'longDate'}}</span>
+            </p>
+            <p class="doctor_cons">
+              <span >Patient</span>
+              <!-- <span *ngIf="item.statut == 1"> Par </span> -->
+              <span class="doctor_name" (click)="goProfil(item.username)"> {{item.prenom}} {{item.nom}}</span>
+            </p>
+            <div class="actions_cons">
+              <div class="boutons" *ngIf="item.medecin_id == this.general.currentUser.id">
+                <button class="btn_footer_cons" slot="start" (click)="goResume(item)"  *ngIf="item.statut == 1">
+                  <ion-icon name="document-text-outline" class="icon_btn_cons icon_resume"></ion-icon>
+                  <span class="label_btn">Résumé</span>
+                </button>
+              <button class="btn_footer_cons" slot="start" (click)="goCarnet(item.patient_id)" *ngIf="item.medecin_id == this.general.currentUser.id">
+                <ion-icon name="folder-open-outline" class="icon_btn_cons icon_resume"></ion-icon>
+                <span class="label_btn">Carnet</span>
+              </button>
+              <button class="btn_footer_cons btn_start" *ngIf="item.statut == 0 && item.type == 0" (click)="this.general.showAlert('Pas encore disponible')">
+                <span class="label_btn">Lançer</span>
+                <ion-icon name="videocam-outline" class="icon_btn_cons icon_camera"></ion-icon>
+              </button>
+              <button class="btn_footer_cons btn_start" *ngIf="item.statut == 0 && item.type == 1" (click)="this.general.showAlert('Pas encore disponible')">
+                <ion-icon name="" class=" fas fa-phone-volume icon_btn_cons icon_camera"></ion-icon>
+                <span class="label_btn">Lançer</span>
+              </button>
+              <button class="btn_footer_cons" slot="end" *ngIf="item.statut == 0 " (click)="updateDemande(1, item)">
+                <ion-icon name="lock-closed-outline" class="icon_btn_cons icon_resume"></ion-icon>
+                <span class="label_btn">Fermer</span>
+              </button>
+              <button class="btn_footer_cons" slot="start" *ngIf="item.statut == 1" (click)="updateDemande(0, item)">
+                <ion-icon name="lock-open-outline" class="icon_btn_cons "></ion-icon>
+                <span class="label_btn">Reouvrir</span>
+              </button>
+              <button class="btn_footer_cons" slot="start" [routerLink]="['/discussion/', this.general.currentUser.username, item.username]">
+                <ion-icon name="chatbox-ellipses-outline" class="icon_btn_cons icon_resume"></ion-icon>
+                <span class="label_btn">Message</span>
+              </button>
+              <button class="btn_footer_cons btn_cancel" *ngIf="item.statut == -1 || item.statut == 3" (click)="deleteDemande(item.id, item.username)">
+                <ion-icon name="close" class="icon_btn_cons icon_camera"></ion-icon>
+                <span class="label_btn">Rejetter</span>
+              </button>
+              <button class="btn_footer_cons btn_start" *ngIf="item.statut == -1" (click)="updateDemande(3, item)">
+                <span class="label_btn">Confirmer</span>
+                <ion-icon name="checkmark-done-outline" class="icon_btn_cons icon_camera"></ion-icon>
+              </button>
+              </div>
+            </div>
+            <p></p>
+          </div>
+      </div>x
+      </div>
+    </div>
+      <div *ngSwitchCase="'structures'">
+        <div class="bloc_patients">
+          <div class="header_docs" *ngIf="searchbar == 0">
+            <ion-searchbar placeholder="Recherche..." class="searchbar_doc"></ion-searchbar>
+          </div>
+          <div class="item_discussion item_patient" *ngFor="let item of structures" >
+            <ion-grid class="grid_disc">
+              <ion-row class="row_disc" >
+                <ion-col size="3" class="left_disc">
+                  <img src={{this.general.STRUCTURES_ROOT+item.logo}}  class="avatar_disc">
+                </ion-col>
+                <ion-col size="9" class="right_disc right_patients">
+                  <div class="header_item_disc">
+                    <p class="username_disc">{{item.nom}}</p>
+                  </div>
+                  <p class="msg_overview date_patient"><span class="label_date">{{item.telephone1}} <span *ngIf="item.telephone2 != null && item.telephone2.length == 9" >/ {{item.telephone2}}</span></span> </p>
+                  <p class="msg_overview date_patient email_structure" *ngIf="item.email != null && item.email.length > 0" ><span class="date_cons_pat">{{item.email}}</span></p>
+                  <p class="msg_overview date_patient"><span class="label_date">{{item.ville}}, {{item.localisation}}</span></p>
+                </ion-col>
+              </ion-row>
+              <div class="actions_cons action_patients">
+
+                    <!-- <button class="btn_footer_cons btn_cancel" *ngIf="item.statut == 1">
+                      <ion-icon name="close" class="icon_btn_cons icon_camera"></ion-icon>
+                      <span class="label_btn">Rejetter</span>
+                    </button> -->
+                    <button class="btn_footer_cons btn_start" *ngIf="item.statut == 1 || item.statut == -1" (click)="updateStructuteStatus(item, 0)">
+                      <span class="label_btn">valider</span>
+                      <ion-icon name="checkmark-done-outline" class="icon_btn_cons icon_camera"></ion-icon>
+                    </button>
+                    <button class="btn_footer_cons btn_cancel" *ngIf="item.statut == 0" (click)="updateStructuteStatus(item, -1)">
+                      <span class="label_btn">Bloquer</span>
+                      <ion-icon name="close-circle-outline" class="icon_btn_cons icon_camera"></ion-icon>
+                    </button>
+                    <button class="btn_footer_cons"  (click)="gostructure(item)">
+                      <ion-icon name="eye-outline" class="icon_btn_cons icon_resume"></ion-icon>
+                      <span class="label_btn">Consulter</span>
+                    </button>
+
+              </div>
+            </ion-grid>
+          </div>
+
+        </div>
+      </div>
+      <div *ngSwitchCase="'planing'">
+        <div class="actual_planing" *ngIf="this.view == 0">
+          <p class="title_current">Actuellement vous êtes disponible </p>
+          <p class="content_icon_close"><ion-icon name="close-outline" class="icon_time icon_close" (click)="this.view = 1"></ion-icon></p>
+          <!-- <p class="title_current">Aucun planing défini</p> -->
+          <p class="line_current">De&nbsp;&nbsp; <span class="span_day">{{this.full_debut}}</span> à <span class="span_day">{{this.full_fin}}</span></p>
+          <p class="line_current">De &nbsp;
+            <span class="span_day">
+              <ion-icon name="time-outline" class="icon_time"></ion-icon>{{this.full_hd}}&nbsp;
+            </span> à&nbsp;
+            <span class="span_day">
+              <ion-icon name="time-outline" class="icon_time"></ion-icon>{{full_hf}}
+            </span>
+          </p>
+        </div>
+        <div class="bloc_planing">
+          <ion-list>
+            <ion-item>
+              <select style="width:100%;border:0px; color:#00B3B7 !important;" disabled>
+                <option  value="0" selected>Période</option>
+                <option value="1" >Jours</option>
+              </select>
+            </ion-item>
+          </ion-list>
+          <!-- <ion-button (click)="presentActionSheet()">Jour de début</ion-button> -->
+          <!-- <ion-item>
+            <ion-label class="label_date">Jour de début</ion-label>
+            <ion-datetime
+              displayFormat="DDDD" placeholder="Selectionnez"
+              dayShortNames="Lundi, Mardi, Mecredi, Jeudi, Vendredi, Samedi, Dimanche"
+              monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+          </ion-item> -->
+          <!-- <dp-date-picker [(ngModel)]="selectedDate" ></dp-date-picker> -->
+          <P class="titre_dates">Choisissez le jour de début</P>
+          <ion-item>
+            <ion-label class="label_date">Jour de début</ion-label>
+            <ion-select  cancelText="Annuler" okText="valider" [(ngModel)]="JDebut">
+              <ion-select-option value="1" selected>Lundi</ion-select-option>
+              <ion-select-option value="2">mardi</ion-select-option>
+              <ion-select-option value="3">Mercredi</ion-select-option>
+              <ion-select-option value="4">Jeudi</ion-select-option>
+              <ion-select-option value="5">Vendredi</ion-select-option>
+              <ion-select-option value="6">Samedi</ion-select-option>
+              <ion-select-option value="7">Dimanche</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <P class="titre_dates">Choisissez le jour de fin</P>
+          <ion-item>
+            <ion-label class="label_date">Jour de fin</ion-label>
+            <ion-select  cancelText="Annuler" okText="valider" class="select" [(ngModel)]="JFin">
+              <ion-select-option value="1" selected>Lundi</ion-select-option>
+              <ion-select-option value="2">mardi</ion-select-option>
+              <ion-select-option value="3">Mercredi</ion-select-option>
+              <ion-select-option value="4">Jeudi</ion-select-option>
+              <ion-select-option value="5">Vendredi</ion-select-option>
+              <ion-select-option value="6">Samedi</ion-select-option>
+              <ion-select-option value="7">Dimanche</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <P class="titre_dates">Choisissez l'heure de début</P>
+          <ion-item>
+            <ion-label class="label_date">Heure Début</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="this.HDebut" ></ion-datetime>
+          </ion-item>
+          <P class="titre_dates">Choisissez l'heure de fin</P>
+          <ion-item>
+            <ion-label class="label_date">Heure Fin</ion-label>
+            <ion-datetime displayFormat="HH:MM" [(ngModel)]="this.HFin" ></ion-datetime>
+          </ion-item>
+
+          <div class="content_btn content_btn_insc">
+            <ion-button class="btn_connexion btn_insc" (click)="savePlaning()">Enregistrer</ion-button>
+          </div>
+
+        </div>
+        </div>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf=" this.type == 'structures'" (click)="goAddStructure()" >
+      <ion-fab-button class="btn_fab">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

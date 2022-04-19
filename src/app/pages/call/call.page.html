@@ -1,0 +1,167 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dial Screen</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="container" style="">
+
+
+
+    <div id="correspondant" class="flot" style="">
+         <ion-icon class="text" style="" slot="icon-only" name="person-circle-outline"></ion-icon><br>
+         <ion-label class="text" style="">{{person}}</ion-label>
+    </div>
+
+    <!-- Chat Room Messages -->
+    <div id="chat" class="flot"></div>
+
+    <!-- Local user Camera -->
+    <div id="parent-localp" >
+       <div id="local-player" class="player flot" style=""></div>
+    </div>
+
+    <!-- Remote user Cameras : first condition on remote video (*ngIf="stream.remoteUsers.length; else elseBlock")-->
+    <div id="remote-videos" class="ui stackable grid flot" style="">
+      <div *ngIf="stream.remote_video_published">
+        <div *ngFor="let i of stream.remoteUsers">
+          <div class="remote-player" id="{{ 'remote-playerlist' + i.uid}}"  style="">
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="call_buttons" class="flot" style="">
+      <ion-button id="btn_mute" *ngIf="isvisible" shape="circle" (click)="callOptions(1)" class="other">
+         <!-- mic-off-outline -->
+         <ion-icon slot="icon-only" name="mic-outline"></ion-icon>
+      </ion-button>
+      <ion-button id="btn_cam" *ngIf="isvisible" shape="circle" (click)="callOptions(2)" class="other">
+         <ion-icon slot="icon-only" name="camera-reverse-sharp"></ion-icon>
+      </ion-button>
+      <ion-button id="btn_video" *ngIf="isvisible" shape="circle" (click)="callOptions(3)" class="other">
+         <span><i class="fas fa-video-slash"></i></span>
+      </ion-button>
+      <!-- <ion-button id="btn_volume" *ngIf="isvisible" shape="circle" (click)="callOptions(4)" class="other">
+         <ion-icon slot="icon-only" name="volume-high-outline"></ion-icon>
+      </ion-button> -->
+      <ion-button *ngIf="isvisible" shape="circle" (click)="endCall()" style="">
+         <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<!-- Local user Camera -->
+<!-- <div class="" style="height:100%;">
+   <div id="local-player" class="player flot" style="height:100%;bottom:0;top:0;"></div>
+</div> -->
+
+<!-- Remote user Cameras : first condition on remote video (*ngIf="stream.remoteUsers.length; else elseBlock")-->
+<!-- <div id="remote-videos" class="ui stackable grid flot" style="width:150px;height: 150px;">
+  <div *ngIf="stream.remote_video_published">
+    <div  *ngFor="let i of stream.remoteUsers">
+      <div id="{{ 'remote-playerlist' + i.uid}}"  style="height:100%;width:100%;bottom: 80px!important;right: 25px!important;height: 100px!important;width: 100px!important;">
+     </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- ---------------v3------------------------------------- -->
+
+
+<!-- Local user Camera -->
+<!-- <div class="" style="">
+  <div id="local-player" class="player flot" style="height:100%;width:100%;bottom: 80px!important;right: 25px!important;height: 100px!important;width: 100px!important;"></div>
+
+</div> -->
+
+<!-- Remote user Cameras : first condition on remote video (*ngIf="stream.remoteUsers.length; else elseBlock")-->
+ <!-- <div id="remote-videos" class="ui stackable grid flot" style="height:100%;top:0;bottom:0;">
+    <div *ngIf="stream.remote_video_published">
+     <div  *ngFor="let i of stream.remoteUsers">
+        <div id="{{ 'remote-playerlist' + i.uid}}"  style="height:100%;bottom:0;top:0;">
+      </div>
+     </div>
+    </div>
+
+ </div> -->
+
+<!-- <ion-item class="" style="display:none;width: 90%; border-radius:30px;margin-bottom: 10px;">
+  <ion-input placeholder="Enter user name" id="username" name="username" [(ngModel)]="userName" style="padding:5px 10px;border-radius:30px;"></ion-input>
+  <ion-icon name="person-outline" slot="start"></ion-icon>
+</ion-item>
+<ion-button *ngIf="hideBtns" (click)="startCall()" type="submit" style="display:none;margin-left: 5px;width: 100px;">
+  <ion-label>Start call</ion-label>
+  <ion-icon style="font-size: 15px;" slot="icon-only" name="arrow-forward-outline"></ion-icon>
+</ion-button> -->
+
+
+<!-- ---------------other-------------------------------------->
+
+<!-- <ion-button *ngIf="hideBtns" (click)="startCall()" type="submit" style="margin-left: 5px;width: 100px;">
+ <ion-label>Start call</ion-label>
+ <ion-icon style="font-size: 15px;" slot="icon-only" name="arrow-forward-outline"></ion-icon>
+</ion-button> -->
+
+<!-- <div class="ui container">
+  <h1 class="ui header">Simple Agora Video App</h1>
+  <hr>
+  <div class="ui two column stackable grid">
+    <div class="ui ten wide column">
+      <div class="ui segment">
+
+        <ion-item class="" style="width: 90%; border-radius:30px;margin-bottom: 10px;">
+          <ion-input placeholder="Enter user name" id="username" name="username" [(ngModel)]="userName" style="padding:5px 10px;border-radius:30px;"></ion-input>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+        </ion-item>
+
+        <ion-button *ngIf="hideBtns" (click)="startCall()" type="submit" style="margin-left: 5px;width: 100px;">
+          <ion-label>Start call</ion-label>
+          <ion-icon style="font-size: 15px;" slot="icon-only" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+
+
+        <div id="chat"></div>
+      </div>
+    </div>
+
+
+    <div class="ui six wide column">
+    <div id="local-player" class="player"></div>
+    <p>{{userName}}</p>
+    </div>
+  </div>
+
+
+  <div id="remote-videos" class="ui stackable grid" style="margin-bottom: 10px;">
+    <div class="four wide column" *ngFor="let i of stream.remoteUsers">
+      <div id="{{ 'remote-playerlist' + i.uid}}" class="ui centered medium image" style="  width: 200px;
+      height: 200px;">{{i.name}}</div>
+    </div>
+  </div>
+
+  <div>
+    <ion-button (click)="rtmclientChannelLogout()" style="font-size:12px;margin-left: 5px;">
+      <ion-label>leave Channel</ion-label>
+    </ion-button>
+  </div>
+
+</div> -->
+
+
+<!-- <ion-button (click)="channelMsg()" style="font-size:12px;margin-left: 5px;">
+        <ion-label>Send message in channel</ion-label>
+      </ion-button>
+      <ion-button (click)="peertopeer()" style="font-size:12px;margin-left: 5px;">
+        <ion-label>Send One to One message</ion-label>
+      </ion-button> -->

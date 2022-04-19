@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Login</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <i class="fas fa-thumbs-up fa-5x" color="danger"></i> -->
+  <!-- <i class="fas fa-heartbeat" style="color:red;font-size:45px;"></i>
+  <i class="far fa-heartbeat" style="color:red;font-size:45px;"></i>
+  <i class="fal fa-heartbeat" style="color:red;font-size:45px;"></i> -->
+  <div class="header_connexion">
+    <div class="content_icon">
+      <ion-icon name="fitness-outline" class="icon_header"></ion-icon>
+    </div>
+    <p class="label_connexion">Se Connecter</p>
+  </div>
+  <div class="content_form">
+    <div class="item_connexion">
+      <ion-icon name="person-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nom d'utilisateur" [(ngModel)]="username" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="lock-closed-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Mot de passe" type="password" [(ngModel)]="pass" class="input_connexion"></ion-input>
+    </div>
+    <p class="label_forgot" (click)="goRecouvrement()">Mot de passe oublié ?</p>
+  </div>
+  <div class="content_btn">
+    <ion-button class="btn_connexion" (click)="login()">Connexion</ion-button>
+  </div>
+  <p class="label_kein_account">Pas encore membre ? <span class="link_ka" routerLink="/inscription">Inscrivez-vous</span></p>
+  <!-- <p>{{uploadText}}</p> -->
+  <!-- <ion-button (click)="sendCode()">Send code</ion-button> -->
+  <!-- <i class="fas fa-thumbs-up fa-5x"></i> -->
+  <!-- <ion-button color="danger " (click)="sendPush()">send push</ion-button> -->
+</ion-content>

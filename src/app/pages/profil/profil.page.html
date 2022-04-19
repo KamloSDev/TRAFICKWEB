@@ -1,0 +1,117 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" routerLink="/tab-nav/home/">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="content_profil">
+      <div class="header">
+        <p class="title_profil">{{prenom}} {{nom}}</p>
+        <!-- <p class="state"></p> -->
+        <p class="state"><span class="text_state" *ngIf="type != 0">Medecin</span><span class="text_state" *ngIf="type == 0">Utilisateur</span></p>
+      </div>
+
+    <div style="width:100%;border:px solid red;height:150px;text-align:center;margin-top:-70px;">
+      <div style="width:100px;border:px solid red;height:100px;margin:0 auto;border-radius:50%;padding:5px;background:#00B3B7;">
+        <img src={{this.general.AVATARS_ROOT+avatar}} class="avatar_profil" *ngIf="this.base64Image == null " alt="avatar" (click)="AccessGallery()">
+        <!-- <img src="../../../assets/imgs/logo.png" class="avatar_profil" *ngIf="this.base64Image == null && this.avatar == null" alt="avatar" (click)="AccessGallery()"> -->
+        <img src={{this.base64Image}} class="avatar_profil" *ngIf="this.base64Image != null" (click)="AccessGallery()">
+      </div>
+    </div>
+    <div class="content_form">
+      <ion-list class="liste_form">
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Nom</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="Nom" [(ngModel)]="nom" required="true"></ion-input>
+        <ion-icon name="person-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Prenom</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="Prenom" [(ngModel)]="prenom" required="true"></ion-input>
+        <ion-icon name="person-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Telephone</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="number" type="text" placeholder="Telephone" [(ngModel)]="telephone" required="true"></ion-input>
+        <ion-icon name="phone-portrait-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Email</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="Email" [(ngModel)]="email" required="true"></ion-input>
+        <ion-icon name="mail-unread-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Date de naissance</ion-label>
+        <!-- <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="Date de naissance" [(ngModel)]="date_naissance " required="true"></ion-input> -->
+        <ion-datetime   class="input_form" value={{this.date_naissance}} [(ngModel)]="date_naissance"  cancelText="Annuler" doneText="choisir" ></ion-datetime>
+        <!-- <ion-datetime   class="input_form"  [(ngModel)]="date_naissance" cancelText="Annuler" doneText="choisir" *ngIf="this.date_naissance == null"></ion-datetime> -->
+        <ion-icon name="browsers-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Sexe</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="m ou f" [(ngModel)]="sexe"  required="true" style="text-transform: uppercase;"></ion-input>
+        <ion-icon name="male-female-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Nom d'utilisateur</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" placeholder="Nom d'utilisateur" [(ngModel)]="username"  required="true" readonly></ion-input>
+        <ion-icon name="person-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Mot de passe</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  inputmode="text" type="password" placeholder="Mot de passe" [(ngModel)]="password" required="true"></ion-input>
+        <ion-icon name="key-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating" class="label_form">Groupe sanguin</ion-label>
+        <ion-input type="text" class="input_form"   placeholder="Groupe Sanguin" [(ngModel)]="this.groupe_sanguin"  style="text-transform: uppercase;"></ion-input>
+        <ion-icon name="egg-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <div class="bloc_pro" *ngIf="view == 0">
+        <div class="content_date" *ngIf=" this.user != null && user.type != 0">
+          <span class="date_carnet">Informations proféssionnelles</span>
+        </div>
+      <ion-item *ngIf="user.type != 0">
+        <ion-label class="label_select">Titre</ion-label>
+        <ion-select placeholder={{full_niveau}} class="select_titre my-class5" value="this.niveau" [(ngModel)]="this.niveau">
+          <ion-select-option *ngFor="let item of niveaux" value={{item.id}}  >{{item.nom}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="user.type != 0 && this.niveau == 1">
+        <ion-label class="label_select">Catégorie</ion-label>
+        <ion-select placeholder={{full_categorie}} class="select_titre" value="this.categorie" [(ngModel)]="this.categorie" slot="end">
+          <ion-select-option value="0" >Généralist(e)</ion-select-option>
+          <ion-select-option value="1" >Spécialiste</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="user.type != 0 && this.niveau == 1 && this.categorie == 1 ">
+        <ion-label class="label_select">Specialité</ion-label>
+        <ion-select placeholder={{full_specialite}} class="select_titre my-class5" value="this.niveau" [(ngModel)]="this.specialite_id">
+          <ion-select-option *ngFor="let item of specialites" value={{item.id}}  >{{item.nom}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="user.type != 0">
+        <ion-label  position="floating" class="label_form">Prix consultation</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  type="number" placeholder="Prix" [(ngModel)]="prix" required="true"></ion-input>
+        <ion-icon name="cash-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <ion-item *ngIf="user.type != 0">
+        <ion-label  position="floating" class="label_form">Années d'expérience</ion-label>
+        <ion-input autocorrect="on" autofocus="on" class="input_form"  type="number" placeholder="Expérience" [(ngModel)]="experience" required="true"></ion-input>
+        <ion-icon name="cash-outline" slot="end" class="icon_form"></ion-icon>
+      </ion-item>
+      <p class="titre_resume" *ngIf="user.type != 0">A Propos de vous</p>
+    <ion-textarea *ngIf="user.type != 0" [(ngModel)]="about" class="texte_resume" autoGrow="true" autofocus="true" placeholder="Parlez-nous de votre parcour proféssionnel..."></ion-textarea>
+    </div>
+    </ion-list>
+    </div>
+</div>
+<div class="content_button" *ngIf="view == 0">
+  <ion-button class="button_save" (click)="control()">Enregistrer</ion-button>
+</div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title_page">Résumé</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <div class="actual_planing">
+      <p class="title_current">Compte rendu de la consultation N° L000{{this.numero}}</p>
+    </div>
+    <p class="titre_resume">Compte Rendu</p>
+    <ion-textarea [(ngModel)]="resume" class="texte_resume" autoGrow="true" autofocus="true" placeholder="Redigez votre compte rendu ici..."></ion-textarea>
+    <p class="titre_resume">Ordonance</p>
+    <ion-textarea [(ngModel)]="ordonance" class="texte_resume" autoGrow="true" autofocus="true" placeholder="redigez votre ordonance ici..."></ion-textarea>
+    <div class="content_btn content_btn_insc" *ngIf="this.currentResume == null">
+      <ion-button class="btn_connexion btn_insc" (click)="saveResume()">Enregistrer</ion-button>
+    </div>
+    <div class="content_btn content_btn_insc" *ngIf="this.currentResume != null">
+      <ion-button class="btn_connexion btn_insc" (click)="updateResume()">Mettre à jour</ion-button>
+    </div>
+  </div>
+
+
+</ion-content>

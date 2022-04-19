@@ -1,0 +1,235 @@
+// @import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+@import url('//db.onlinewebfonts.com/c/b4e4280eacbbd2ed88862d648b0b1f2f?family=Proxima+Nova+Soft');
+
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  background: turquoise;
+}
+
+.flot {
+  position: absolute;
+}
+
+.flot_left {
+  float: left;
+}
+
+.text {
+  color: #5EB4E5;
+  font-family: 'proxima-soft';
+  font-style: normal;
+  font-weight: 200;
+  line-height: 1.875;
+}
+
+div#correspondant {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  top: 65px;
+}
+
+ion-icon {
+  font-size: 110px;
+}
+
+#correspondant ion-label {
+  font-size: 30px;
+  text-transform: Capitalize;
+  width: 60%;
+  line-height: 1.2;
+}
+
+div#local-player {
+  height: 100%;
+  bottom: 0;
+  top: 0;
+}
+
+#local-player {
+  bottom: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.my_local_video_class {
+  height: 100%;
+  width: 100%;
+}
+
+div#remote-videos {
+  width: 150px;
+  height: 150px;
+  // margin-top: 110px;
+  // margin-left: 60%;
+  //background: #87D9BC;
+}
+
+#remote-videos {
+  bottom: 100px!important;
+  right: 20px!important;
+  height: 140px!important;
+  width: 100px!important;
+  z-index: 10;
+}
+
+.remote_border {
+  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px, rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
+}
+
+div#remote-videos > div > div > div {
+  bottom: 80px!important;
+  right: 25px!important;
+  height: 140px!important;
+  width: 100px!important;
+  z-index: 40;
+}
+
+.remote_video_class {
+  bottom: 40px!important;
+  right: 15px!important;
+  height: 100px!important;
+  width: 100px!important;
+}
+
+div#call_buttons {
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-button[shape=circle] {
+  --border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+ion-button span {
+  font-size: 22px;
+  color: white;
+}
+
+#call_buttons ion-button:nth-child(1) {
+  --background: rgb(81, 161, 226);
+}
+
+.clicked_mic {
+  --background: #75eca7!important
+}
+
+#call_buttons ion-button:nth-child(2) {
+  --background: #51a0a0;
+}
+
+.clicked_cam {
+  --background: #75eca7!important;
+}
+
+#call_buttons ion-button:nth-child(3) {
+  --background: #18407c;
+}
+
+.clicked_video {
+  --background: #75eca7!important;
+}
+
+#call_buttons ion-button:nth-child(4) {
+  --background: #03919b;
+}
+
+.clicked_volume {
+  --background: #75eca7!important;
+}
+
+#call_buttons ion-button:nth-child(5) {
+  --background: rgb(216, 69, 69);
+  // #e06969
+}
+
+.player {
+  width: 480px;
+  height: 320px;
+}
+@media (max-width: 640px) {
+  .player {
+    width: 320px;
+    height: 240px;
+  }
+}
+
+#chat-content {
+  height: 180px;
+  overflow-y: scroll;
+}
+// ---------------------------Sauvegarde----------------------------------------
+// #local-player{
+//    // top:10px;
+//    bottom: 10px;
+//    height: 100%;
+//    width: 100%;
+// }
+// #remote-playerlist, #remote-videos{
+//    bottom: 100px!important;
+//    right: 20px!important;
+//    height: 100px!important;
+//    width: 100px!important;
+// }
+//
+// .remote_video_class{
+//    bottom: 40px!important;
+//    right: 15px!important;
+//    height: 100px!important;
+//    width: 100px!important;
+//    // margin-bottom: 10px;
+// }
+// .my_local_video_class{
+//    height: 100%;
+//    width: 100%;
+// }
+// #remote-videos {
+//   display: flex;
+// }
+// ---------------------------------------V3
+// #local-player{
+//    bottom: 100px!important;
+//    right: 20px!important;
+//    height: 100px!important;
+//    width: 100px!important;
+//    z-index: 10;
+// }
+// #remote-playerlist, #remote-videos{
+//    // top:10px;
+//    // bottom: 10px;
+//    height: 100%;
+//    width: 100%;
+//    z-index: 99;
+// }
+//
+// .remote_video_class{
+//    height: 100%;
+//    width: 100%;
+// }
+// .my_local_video_class{
+//    bottom: 40px!important;
+//    right: 15px!important;
+//    height: 100px!important;
+//    width: 100px!important;
+//    // margin-bottom: 10px;
+// }
+// #local-player {
+//   // display: flex;
+// }

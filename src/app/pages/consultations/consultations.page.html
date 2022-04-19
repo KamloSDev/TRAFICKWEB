@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" routerLink="/tab-nav/home">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title_page">Consultations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_consultations">
+  <div class="main_ras" *ngIf="this.demandes.length == 0" >
+    <p class="content_icon_ras">
+      <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+    </p>
+    <p class="msg_ras">
+      Aucune consultation
+    </p>
+  </div>
+
+  <div class="item_consultations" *ngFor="let item of demandes">
+    <div class="header_cons">
+      <!-- <p class="num_cons">Consultation N°AL005</p>
+      <span class="statut">Passée</span> -->
+        <p class="num_cons">Consultation N°L000{{item.id}}</p>
+        <span class="statut" *ngIf="item.statut == 1">Passée</span>
+        <span class="statut attente" *ngIf="item.statut == 3">Non Payée</span>
+        <span class="statut confirme" *ngIf="item.statut == 0">Ouvert</span>
+        <span class="statut non_confirme" *ngIf="item.statut == -1">Non Confirmée</span>
+    </div>
+    <p class="doctor_cons date_cons">
+        <span *ngIf="item.statut == 0">Demandée le </span>
+        <span *ngIf="item.statut == 1">Effectuée le </span>
+        <span *ngIf="item.statut == 3 || item.statut == -1">Envoyée le </span>
+        <span class="doctor_name"> {{item.date | date:'longDate'}}</span>
+    </p>
+    <p class="doctor_cons">
+      <span *ngIf="item.statut == 3 || item.statut == -1 || item.statut == 0">A </span>
+      <span *ngIf="item.statut == 1">Par </span>
+       <span class="doctor_name" (click)="goProfil(item.username)">{{item.prenom}} {{item.nom}}</span>
+    </p>
+    <div class="actions_cons">
+      <ion-buttons>
+        <button class="btn_footer_cons btn_start" *ngIf="item.statut == 0 && item.type == 0" (click)="this.general.showAlert('Pas encore disponible')">
+          <span class="label_btn">Lançer</span>
+          <ion-icon name="videocam-outline" class="icon_btn_cons icon_camera"></ion-icon>
+        </button>
+        <button class="btn_footer_cons btn_start" *ngIf="item.statut == 0 && item.type == 1" (click)="this.general.showAlert('Pas encore disponible')">
+          <ion-icon name="" class=" fas fa-phone-volume icon_btn_cons icon_camera"></ion-icon>
+          <span class="label_btn">Lançer</span>
+        </button>
+        <button class="btn_footer_cons btn_start" *ngIf="item.statut == 3" (click)="this.general.showAlert('Pas encore disponible')">
+          <ion-icon name="wallet-outline" class=" icon_btn_cons icon_camera"></ion-icon>
+          <span class="label_btn">payer</span>
+        </button>
+        <button class="btn_footer_cons btn_start btn_cancel" *ngIf="item.statut == -1 || item.statut == 3" (click)="deleteDemande(item.id, item.username)">
+          <ion-icon name="close-outline" class=" icon_btn_cons icon_camera"></ion-icon>
+          <span class="label_btn">Annuler</span>
+        </button>
+      </ion-buttons>
+    </div>
+    <p></p>
+  </div>
+
+</ion-content>

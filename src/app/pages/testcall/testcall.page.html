@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>testcall</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <div class="flex-center" style="margin-top:10px;padding:10px;">
+      <ion-button color="primary" color="secondary" size="small" (click)="logastesterone()">
+         Log as tester 1
+      </ion-button>
+      <ion-button color="primary" color="warning" size="small" (click)="logastestertwo()">
+         Log as tester 2
+      </ion-button>
+   </div>
+
+   <div class="flex-center" style="margin-top:15px;padding:10px;border-top:1px dotted aqua;">
+      <ion-button color="medium" size="small" (click)="testreversecam()">Debug Reverse cam</ion-button>
+      <ion-button color="medium" size="small" (click)="testspeaker()">Debug Active Speaker</ion-button>
+   </div>
+
+   <div class="flex-center" style="margin-top:15px;padding:10px;border-top:1px dotted aqua;">
+      <ion-button color="medium" size="small" (click)="testCall('outgoing call','repondre', '656911024', 'Nikit')">
+         Call tester (Nikit)
+      </ion-button>
+      <ion-button color="medium" size="small" (click)="testCall('outgoing call','repondre', '699800796', 'Nohno')">
+         Call tester (Flavie)
+      </ion-button>
+   </div>
+
+   <div class="inner-debug" style="height:250px;">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   </div>
+</ion-content>

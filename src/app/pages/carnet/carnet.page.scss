@@ -1,0 +1,97 @@
+
+ion-content{
+  --background: #E5F3F6 !important;
+  border:px solid red;
+  --background: white  !important;
+}
+.content_date{
+  width:100%;
+  border:px solid red;
+  text-align:center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  margin-top:20px;
+}.date_carnet{
+  background:white;
+  // background: whitesmoke;
+  color:#00B3B7;
+  border:1px solid #00B3B7;
+  border-radius:10px;
+  padding:3px 8px 3px 8px;
+  // box-shadow: 1px 2px white;
+}
+.bloc_consultation{
+  border:px solid red;
+  margin-top:0px;
+  background: white;
+  border-bottom:1px solid #DDD;
+}
+.item_consultation{
+  width:100%;
+  border:px solid blue;
+  padding:18px;
+  padding-bottom: 0px;
+}
+.titre, .description_consultation{
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  border:px solid red;
+}
+.titre{
+  font-weight: 600;
+  font-size: 14px;
+  // border:1px solid red;
+  margin-bottom:0px;
+  margin-bottom: 5px;;
+}
+.description_consultation{
+  font-weight: 400;
+  font-size:13px;
+}
+ul{
+  border:px solid red;
+  padding-left:20px;
+  margin-top:5px;
+
+}
+.item_ordonance{
+  padding-top:10px;
+
+}
+
+.footer_consultation{
+  border:px solid red;
+  padding:15px;
+  padding-top:0px;
+  margin-top:10px;
+  // text-align: right;
+}
+.by, .specialite_doc_carnet{
+  margin:0 auto;
+  border:px solid red;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.username_doc_ccarnet{
+  color:#00B3B7;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.specialite_doc_carnet{
+  font-family: 'Poppins', sans-serif;
+  font-size:12px;
+  // padding-left:15px;
+  color:gray;
+  margin-top:-5px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.btn_fab{
+  --background:#00B3B7;;
+}
+ion-fab{
+  margin-right:15px;
+  margin-bottom:15px;
+}

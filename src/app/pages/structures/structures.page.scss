@@ -1,0 +1,79 @@
+.wrapper-structures{
+  width: 100%;
+}
+.wrapper-structures .item_structure{
+  padding: 10px 20px 20px 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.wrapper-structures .wrapper-image{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.logo_structure{
+  max-height: 100%;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+.wrapper-structures .structure_name{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 16px;
+  margin: 10px 0px 0px;
+}
+.wrapper-structures .structure_location{
+  font-family: 'Poppins', sans-serif;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+}
+.wrapper-structures .structure_location::first-letter{
+  text-transform: capitalize;
+}
+.wrapper-structures .wrapper_icon{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+}
+.wrapper_icon >ion-icon{
+  font-size: 14px;
+}
+.wrapper_icon>span{
+  // color: black;
+  margin-left: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #737373 !important;
+
+}
+.wrapper_button{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+.bottom_structure{
+  width: 100%;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #0EC9C3;
+}
+.wrapper_button>ion-icon{
+  height: 15px;
+}
+

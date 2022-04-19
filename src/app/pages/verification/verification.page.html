@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>phone</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <div class="header_otp">
+    <p class="content_phone">
+      <ion-icon name="keypad-outline" class="icon_otp"></ion-icon>
+    </p>
+    <p class="label_welcome">
+      Vérification
+    </p>
+    <p class="sub_welcome sub_w_veif">
+      Entrez le code reçu au numéro 699800796 dans le champs ci-dessous
+    </p>
+  </div>
+  <div class="content-card">
+    <ion-card padding>
+      <ion-card-content class="carte">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <ion-input type="text" class="input_veri" value="6" maxlength="1" autofocus="on"></ion-input>
+            </ion-col>
+            <ion-col size="3">
+              <ion-input type="text" class="input_veri" value="6" maxlength="1"></ion-input>
+            </ion-col>
+            <ion-col size="3">
+              <ion-input type="text" class="input_veri" value="6" maxlength="1"></ion-input>
+            </ion-col>
+            <ion-col size="3">
+              <ion-input type="text" class="input_veri" value="6" maxlength="1"></ion-input>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+        <div class="content_btn">
+          <ion-button class="btn_next" routerLink="/login">Vérifier</ion-button>
+        </div>
+        <p class="code_unreceive">code non reçu ? <span class="link_resend">Renvoyer</span></p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <div class="item_discussion item_header" routerLink="/discussion">
+      <ion-grid class="grid_disc">
+        <ion-row class="row_disc">
+          <ion-col size="2" class="left_disc left_header">
+            <img *ngIf="this.destinataire != null" src={{this.general.AVATARS_ROOT+destinataire.avatar}} class="avatar_disc avatar_header">
+          </ion-col>
+          <ion-col size="10" class="right_disc">
+            <div class="header_item_disc">
+              <p class="username_disc username_header" *ngIf="this.destinataire != null">{{destinataire.prenom}} {{destinataire.nom}}</p>
+              <p class="date_disc title_user_disc" *ngIf="this.destinataire != null && this.destinataire.specialite != null">{{destinataire.specialite}}</p>
+              <p class="date_disc title_user_disc" *ngIf="this.destinataire != null && this.destinataire.specialite == null">{{destinataire.telephone}}</p>
+              <!-- <p class="date_disc title_user_disc" *ngIf="this.destinataire != null && this.destinataire.type == 0">{{destinataire.telephone}}</p> -->
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ionn_content_discussion ion_content_disc" style="background: #E5F3F6 !important;">
+  <div #list class="content_discussion" [scrollTop]="list.scrollHeight">
+    <!-- <div class="right_one">
+      <img src="../../assets/img/avatar.jfif" class="avatar_bubble">
+      <div class="box3 sb13">setting, remaining essentially unchanged. It was popularised in</div>
+    </div> -->
+    <!-- <div class=" left_one">
+      <img src="../../assets/img/speakers/elephant.jpg" class="avatar_bubble avatar_left">
+      <div class="box3 sb14">I'm speech bubbl I'm speech bubble survived not only </div>
+    </div> -->
+    <div class="card-body msg_card_body">
+      <ng-template ngFor let-message [ngForOf]="messagelist">
+        <ng-container
+          [ngTemplateOutlet]="myuserid==message.senderid ?msgSend : msgReceiv"
+          [ngTemplateOutletContext]="{message:message}">
+        </ng-container>
+      </ng-template>
+
+      <ng-template #msgReceiv let-message='message'>
+        <div class="d-flex justify-content-start mb-4">
+          <div class=" left_one">
+            <img src={{this.general.AVATARS_ROOT+destinataire.avatar}} class="avatar_bubble avatar_left">
+            <div class="box3 sb14">{{message.text}}</div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #msgSend let-message='message'>
+        <div class="d-flex justify-content-end mb-4" style="border:px solid red;text-align:right !important">
+          <div class="right_one">
+            <img src={{this.general.AVATARS_ROOT+this.general.currentUser.avatar}} class="avatar_bubble">
+            <div class="box3 sb13">
+              <p class="msg_text">
+                {{message.text}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+<ion-grid class="form_msg">
+  <ion-row>
+    <ion-col size="10" class="col1">
+      <ion-input #myInput class="textarea"  placeholder=" Votre message ici..." [(ngModel)]="msg.text" auto-grow="on" ></ion-input>
+    </ion-col>
+    <ion-col size="2" class="col2">
+      <ion-buttons>
+      <ion-button class="btn_send" (click)="chatt()">
+        <ion-icon name="send" class="icon_btn_send" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

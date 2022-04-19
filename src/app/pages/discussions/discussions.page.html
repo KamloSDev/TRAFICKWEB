@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" routerLink="/tab-nav/home">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title_page">Discussions</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="toggleSearchBar()">
+        <ion-icon slot="icon-only" ios="search-outline" md="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="searchbar == 0">
+    <div class="header_docs">
+      <ion-searchbar placeholder="Recherche..." class="searchbar_doc"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background: white !important;">
+  <div class="main_ras" *ngIf="this.hasDisc == 1" >
+    <p class="content_icon_ras">
+      <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+    </p>
+    <p class="msg_ras">
+      Aucune discussion
+    </p>
+  </div>
+<div class="content_discussions" *ngIf="this.hasDisc == 0" >
+  <!-- <div class="item_discussion" routerLink="/discussion">
+    <ion-grid class="grid_disc">
+      <ion-row class="row_disc">
+        <ion-col size="2" class="left_disc">
+          <img src="../../assets/img/avatar.jfif" class="avatar_disc">
+        </ion-col>
+        <ion-col size="10" class="right_disc">
+          <div class="header_item_disc">
+            <p class="username_disc">Mr Kaplan</p>
+          <p class="date_disc">12 Janv 2021</p>
+          </div>
+          <p class="msg_overview">survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+  <div class="item_discussion" *ngFor="let doctor of discussionsArray" [routerLink]="['/discussion/', userid, doctor.username]">
+    <ion-grid class="grid_disc"  *ngIf="doctor.username != this.general.currentUser.username && doctor.lastmsg != null">
+      <ion-row class="row_disc">
+        <ion-col size="2" class="left_disc">
+          <img src={{this.general.AVATARS_ROOT+doctor.avatar}} class="avatar_disc">
+        </ion-col>
+        <ion-col size="10" class="right_disc">
+          <div class="header_item_disc">
+            <p class="username_disc">{{doctor.prenom}} {{doctor.nom}} </p>
+          <p class="date_disc">{{this.today | date:'longDate'}}</p>
+          <p class="arobase" >@{{doctor.username}}</p>
+          </div>
+          <p class="msg_overview" *ngIf="doctor.lastmsg != null">
+            <!-- <span class="sender" *ngIf="doctor.lastmsg.senderid == this.general.currentUser.username">Vous:</span> -->
+            <span class="sender" *ngIf="doctor.lastmsg.senderid != this.general.currentUser.username">{{ doctor.lastmsg.senderid}}:</span>
+             {{doctor.lastmsg.text}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="item_discussion" *ngFor="let discussion of discussions" [routerLink]="['/discussion/',doctor_username,discussion.partner_username]">
+    <ion-grid class="grid_disc" >
+      <ion-row class="row_disc">
+        <ion-col size="2" class="left_disc">
+          <img src={{this.general.AVATARS_ROOT+discussion.avatar}} class="avatar_disc">
+        </ion-col>
+        <ion-col size="10" class="right_disc">
+          <div class="header_item_disc">
+            <p class="username_disc">{{discussion.partner_name}} {{discussion.partner_surname}} </p>
+            <p class="date_disc">05 Dec 2020</p>
+            <p class="arobase" >@{{discussion.partner_username}}</p>
+          </div>
+          <p class="msg_overview" *ngIf="discussion.last_message_text != null">
+            <!-- <span class="sender" *ngIf="doctor.lastmsg.senderid == this.general.currentUser.username">Vous:</span>
+            <span class="sender" *ngIf="doctor.lastmsg.senderid != this.general.currentUser.username">{{ doctor.lastmsg.senderid}}:</span> -->
+             {{discussion.last_message_text}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-item  color="none" *ngFor="let discussion of discussions" [routerLink]="['/discussion/',doctor_username,discussion.partner_username]">
+    <ion-card color="none" button >
+      <ion-avatar >
+        <img src={{this.general.AVATARS_ROOT+discussion.avatar}}>
+      </ion-avatar>
+      <ion-card-header>
+        <ion-card-title><strong>{{discussion.partner_name}} - {{discussion.partner_surname}}</strong>  </ion-card-title>
+        <ion-card-subtitle>@{{discussion.partner_username}}</ion-card-subtitle>
+      </ion-card-header>
+      <p>
+        <span>
+          <ng-container
+            [ngTemplateOutlet]="discussion.last_message_sender==doctor_username ? doctor : patient">
+          </ng-container>
+          <ng-template #doctor ><span style="color: darkcyan;">You: </span></ng-template>
+          <ng-template #patient ><span style="color: coral;">{{discussion.partner_username}}: </span></ng-template>
+        </span>
+        <em>{{discussion.last_message_text}}</em>
+      </p>
+      <ion-label> 05/12/2021</ion-label>
+    </ion-card>
+  </ion-item>
+
+</div>
+<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]='[ "/discussion/", userid, "chatbot" ]'>
+  <ion-fab-button>
+    <ion-icon name="logo-octocat"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
+</ion-content>

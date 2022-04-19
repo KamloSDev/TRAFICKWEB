@@ -1,0 +1,129 @@
+.content_docs{
+  padding: 10px;;
+  // border:1px solid red;
+  height: 100%;;
+  padding-bottom:20px;
+  height:auto;
+}
+
+.item_doc1{
+  padding:7px;
+}
+.avatar_doc{
+  width:60px;
+  height:60px;
+  border-radius:15px;
+  border:1px solid #DDD;
+  float:left;
+}
+.content_infos_doc{
+  border:px solid red;
+  max-width:79%;
+  float:left;
+  padding-left:15px;
+}
+.username_doc{
+  border:px solid red;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size:14px;
+  color:#027AF2;
+  // color:#0EC9C3;
+  margin-bottom:2px;
+  margin-top:3px;
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+
+  // text-transform: uppercase;
+}
+.structure_doc, .titre_doc{
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family: inherit;
+  font-weight: 400;;
+  font-size: 13px;
+  // color:#00B3B7;
+  margin-bottom:2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+text-transform: capitalize;
+}
+.structure_doc{
+  text-decoration: underline;
+}
+
+.header_docs{
+  padding:10px;
+  // border:1px solid red;
+  padding-top:0px;
+}
+
+.icon_stars{
+  color:orange;
+}
+
+.outline{
+  color:#ecdda3;
+}
+.filled_star{
+  color:#FCBC40;
+}
+
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  padding:10px;
+  margin-top:10px;
+  max-width:98%;
+}
+.up_item_spec{
+  display: inline-block;
+  text-align: center;
+}
+.scrollmenu{
+  // border:1px solid red;
+  max-height:80px;
+  --padding:0px !important;
+  margin-bottom: 10px;;
+}
+.scrollmenu {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+.titre_spec{
+  margin-top:5px;
+  text-align: center;;
+  font-weight: 700;
+
+  font-family: initial;
+  margin-bottom:0px;
+  text-transform: capitalize;
+  margin-right:8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+
+}
+.active{
+  border-top:1px solid #00B3B7;
+  border-bottom:1px solid #00B3B7;
+  // color:red;
+  color:#00B3B7;
+}
+.custom {
+  --background:var(--my-var);
+  }
+  .actual_planing{
+    width:100%;
+    // padding:10px;
+    background:rgb(205, 249, 250);
+    background:rgb(193, 249, 250);
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400;
+    font-size:14px;
+    display: inline-block;
+  }

@@ -1,0 +1,127 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="app_name">Losto</ion-title>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only" routerLink="/discussions">
+          <ion-icon name="chatbox-ellipses-outline" class="icon_header_home"></ion-icon>
+        </ion-button>
+        <ion-button slot="icon-only" routerLink="/consultations">
+          <ion-icon name="medkit-outline" class="icon_header_home icon_medkit"></ion-icon>
+        </ion-button>
+        <ion-button slot="icon-only" routerLink="/specialites">
+          <ion-icon name="grid-outline" class="icon_header_home icon_medkit"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar style="margin-top:-8px;padding-bottom:10px;">
+      <div class="header_docs" >
+        <input placeholder="Recherche..." class="searchbar_doc" [(ngModel)]="searchQuery" (keyup)="search($event)">
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="fond_docs">
+      <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+  <div class="content_docs">
+    <ion-card class="card_intro">
+      <div class="content_cadr">
+        <div class="left_card">
+          <img src="../../assets/img/consultation.png" class="img_card">
+        </div>
+        <div class="right_card">
+          <p class="texte_intro_card">Faites-vous consulter maintenant</p>
+          <p class="btn_start" routerLink="/tab-nav/doctors">commencez</p>
+        </div>
+      </div>
+    </ion-card>
+  <div class="scrollmenu">
+      <div class="up_item_spec" *ngFor="let item of specialites">
+        <ion-card class="item_specialite item_specialite2" (click)="this.general.filter = item.nom" routerLink="/tab-nav/doctors">
+          <div class="content_icon_spec content_icon_spec2">
+            <!-- <ion-icon name="eye-outline" class="img_spec img_spec2"></ion-icon> -->
+            <i class={{item.icone}} style="color:white;font-size: 20px;;margin:0 auto;margin-top:8px;"></i>
+          </div>
+          <div class="content_texte_spec content_texte_spec2">
+            <p class="label_spec">Specialité:</p>
+            <p class="titre_spec">{{item.nom}}</p>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+    <!-- <ion-button (click)="openMap()">
+      <ion-icon name="location-outline"></ion-icon>open map
+    </ion-button> -->
+      <div class="titre_section">
+        <div class="left_header">
+          <p class="line1_header">Top Docteurs</p>
+        </div>
+        <div class="right_header" routerLink="/tab-nav/doctors">
+          <ion-icon name="chevron-forward-outline" slot="end" class="icon_chevron"></ion-icon>
+          <p class="label_tous">Tous</p>
+        </div>
+      </div>
+      <ion-card class="item_doc1"  *ngFor="let item of doctors" (click)="goDoctor(item)">
+          <img src={{this.general.AVATARS_ROOT+item.avatar}} class="avatar_doc">
+          <div class="content_infos_doc">
+            <p class="username_doc"><span *ngIf="item.niveau_id == 1">Dr </span>{{item.prenom }} {{item.nom}}</p>
+            <p class="titre_doc">{{item.specialite}} </p>
+            <div class="content_stars" *ngIf="item.note == 0">
+              <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  ></ion-icon>
+            </div>
+            <div class="content_stars" *ngIf="item.note > 0">
+              <ion-icon name="star" class="icon_stars star_livre"  ></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="item.note == 0"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 1"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 2"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 2"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 3"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 3"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline"  *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 4"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 4"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre outline" *ngIf="(item.note/item.nbVote) == 0 || (item.note/item.nbVote) < 5"></ion-icon>
+              <ion-icon name="star" class="icon_stars star_livre"  *ngIf="(item.note/item.nbVote) >= 5"></ion-icon>
+            </div>
+          </div>
+      </ion-card>
+
+
+    <div class="titre_section top_structures">
+      <div class="left_header">
+        <!-- <p class="line1_header">Top</p> -->
+        <p class="line1_header">Top Structures</p>
+      </div>
+      <div class="right_header" routerLink="/tabs/tab2">
+        <ion-icon name="chevron-forward-outline" slot="end" class="icon_chevron"></ion-icon>
+        <p class="label_tous">Toutes</p>
+      </div>
+    </div>
+    <div class="wrapper-structures">
+      <ion-card class="item_doc1"  *ngFor="let item of structures" (click)="goStructure(item)" >
+        <img src={{this.general.STRUCTURES_ROOT+item.logo}} class="avatar_doc">
+        <div class="content_infos_doc">
+          <p class=" structure_name">{{item.nom}}</p>
+          <p class="titre_doc structure_location">{{item.localisation}} </p>
+          <div class="bottom_structure">
+            <div class="wrapper_icon">
+              <ion-icon name="grid-outline" ></ion-icon>
+              <span>{{item.categorie}}</span>
+            </div>
+          </div>
+        </div>
+    </ion-card>
+    </div>
+  </div>
+    </div>
+  </ion-content>
+
+</ion-content>

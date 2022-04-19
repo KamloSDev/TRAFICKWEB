@@ -1,0 +1,99 @@
+<!-- <ion-header style=" --background: transparent;
+--ion-color-base: transparent !important;
+">
+  <ion-toolbar style=" --background: transparent;
+  --ion-color-base: transparent !important;
+  ">
+    <ion-title>Structure</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content style="max-height: 100vh">
+
+  <div class="wrapper-structure">
+    <div class="header-structure">
+      <!-- <div class="header-structure__informations">
+        <img src="../../../assets/imgs/logo">
+        <div class="header-structure__details">
+          <p class="structure_name">nom</p>
+          <p class="structure_location">localisation</p>
+          <p class="structure_location"><ion-icon name="grid-outline"></ion-icon>categorie</p>
+        </div>
+      </div> -->
+    </div>
+    <div class="footer-structure">
+      <div class="wrapper_card_infos">
+        <ion-card class="header-structure__informations">
+          <div class="wrapper-logo_structure">
+            <img src={{this.general.STRUCTURES_ROOT+structure.logo}}  class="logo_structure">
+          </div>
+          <div class="header-structure__details">
+            <p class="structure_name">{{this.structure.nom}} </p>
+            <p class="structure_location ville">{{this.structure.ville}}, {{this.structure.localisation}}</p>
+            <p class="structure_location ville"><ion-icon name="grid-outline" class="icon_category"></ion-icon> {{this.structure.categorie}}</p>
+          </div>
+        </ion-card>
+      </div>
+      <div class="wrapper-segment">
+        <ion-segment scrollable value="description" [(ngModel)]="segmentModel" >
+          <ion-segment-button value="description" class="segment_first">
+             Description
+          </ion-segment-button>
+          <ion-segment-button value="contact"  class="segment_second">
+            <!-- <ion-icon name="heart"></ion-icon> -->
+             Contact
+          </ion-segment-button>
+        </ion-segment>
+        <div class="segment_bloc" *ngIf="this.segmentModel == 'description' " >
+          <p class="structure_description">
+            {{this.structure.description}}
+          </p>
+        </div>
+        <div class="segment_bloc" *ngIf="this.segmentModel == 'contact' " >
+          <div class="item_contact">
+            <div class="item_contact--left"></div>
+            <div class="item_contact--right">
+              <ion-icon name="location-outline"></ion-icon>
+              <span >{{this.structure.ville}}</span>
+            </div>
+          </div>
+          <div class="item_contact">
+            <div class="item_contact--left"></div>
+            <div class="item_contact--right">
+              <ion-icon name="locate-outline"></ion-icon>
+              <span >{{this.structure.localisation}}</span>
+            </div>
+          </div>
+          <div class="item_contact">
+            <div class="item_contact--left"></div>
+            <div class="item_contact--right">
+              <ion-icon name="call-outline"></ion-icon>
+              <span >{{this.structure.telephone1}} </span>
+              <span *ngIf="this.structure.telephone2 != null && this.structure.telephone2.length == 9" >&nbsp;/ {{this.structure.telephone2}}</span>
+            </div>
+          </div>
+          <div class="item_contact" *ngIf="structure.email != null && structure.email.length > 0" >
+            <div class="item_contact--left"></div>
+            <div class="item_contact--right">
+              <ion-icon name="mail-unread-outline"></ion-icon>
+              <span >{{this.structure.email}} </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button class="transparent" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="this.mapPoints != null && this.mapPoints.length > 0" (click)="openMap()">
+    <ion-fab-button class="long_fab" >
+      <ion-icon name="locate-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

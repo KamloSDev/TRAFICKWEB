@@ -1,0 +1,187 @@
+ion-toolbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  --background: transparent;
+  --color: white;
+}
+.content{
+  border:px solid red;
+  --background:#009AC9;
+  --background:#00B3B7;
+
+  // --background: red;;
+}
+.header_otp{
+  width:100%;
+  border:px solid red;
+  margin-top:20%;
+}
+.content_phone{
+  width:100%;
+  border:px solid red;
+  text-align: center;
+  margin-bottom:0px;
+  width:100px;
+  height:100px;
+  margin:0 auto;
+  border-radius:50%;
+  background:#009AC9;
+  background:white;
+}
+.icon_otp{
+  font-size:45px;
+  color:#009AC9;
+  color:#00B3B7;
+  // color:white;
+  margin-top:30%;
+}
+.label_welcome{
+  width:100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: inherit;
+  margin-bottom: 0px;;
+  margin-top:5px;
+  color:white;
+  // border:1px solid red;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700;
+}
+.sub_welcome{
+  text-align: center;
+  width:100%;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top:20px;
+  padding:10px;
+  color:white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  // border:1px solid red;
+}
+.input_otp{
+  border:1px solid #DDD;
+  background:#EBF0F1;
+  border-radius:20px;
+  font-size: 15px;
+  font-family: inherit;
+  padding-left:10px !important;
+  // margin-top:10px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  height:40px;
+}
+.btn_next{
+  --background: white;
+  color:#00B3B7;
+  margin:0 auto !important;
+  height:40px;
+  width:120px;
+  --border-radius:20px !important;
+  font-size: 13px !important;
+  text-transform: unset;
+  font-weight: 600;;
+  font-family: inherit;
+  margin-bottom:20px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  height:35px;
+}
+.content_btn{
+  margin-top:15px;
+  text-align:center;
+  border:px solid red;
+}
+.content-card{
+  // border:1px solid red;
+  padding:12px;
+  --background:#009AC9;
+}
+ion-card{
+  --background:#009AC9;
+  box-shadow: none;
+  --background:#00B3B7;
+}
+
+.carte{
+  // border:1px solid red;
+  padding:0px;
+}
+.content_ipts{
+  border:px solid red;
+  // display:inline-block;
+  height: 50px;;
+  text-align:center;
+  width:auto;
+}
+.input_verif{
+  // border:1px solid red;
+  width:40px;
+  margin:0 auto !important;
+  float:left;
+  margin-left:20px !important;
+  background:white;
+  text-align:center !important;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: inherit;
+  padding-right:5px !important;
+
+}
+.input_veri{
+  width:40px;
+  margin:0 auto !important;
+  // float:left;
+  // margin-left:20px !important;
+  background:white;
+  text-align:center !important;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
+  padding-right:8px !important;
+  // background:transparent !important;
+  // border-bottom: 1px solid white;;
+  // color:white;
+
+
+}
+
+.code_unreceive{
+  width:100%;
+  text-align:center;
+  font-size:12px;
+  color:white;
+  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+
+}
+.link_resend{
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+ion-row{
+  // border:1px solid red;
+  padding:8px !important;
+}
+ion-col{
+  // border:1px solid green;
+  // padding: 0px;
+  // padding-right:0px;
+}
+.sub_w_veif{
+  margin-top:20px;
+  // border:1px solid red;
+  padding-left:25px !important;
+  padding-right:25px !important;
+}

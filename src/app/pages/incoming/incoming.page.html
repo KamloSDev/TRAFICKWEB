@@ -1,0 +1,27 @@
+
+<ion-content style="background:navy">
+  <div style="background: turquoise;height:100vh">
+  <div style="width: 100%;height: 65%;border:px solid red; display: flex; flex-direction: column;
+  flex-wrap: wrap; align-items: center; justify-content: center; background: ;">
+    <img src="/assets/img/avatar.jfif" style="width: 130px; height: 130px; border-radius: 50%;">
+    <p class="text" style="font-size:30px;text-transform:Capitalize;
+    font-family: 'Poppins', sans-serif;
+   font-weight: 500;
+   width: 100%;
+   margin: 0;
+   text-align: center;
+   font-size: 25px;
+   margin: 10px 0;
+   color: black;
+   ">{{caller}}</p>
+    <p style="font-family: 'Poppins', sans-serif;
+    width: 100%;
+    font-weight: 300;color: black; margin:0;font-size: 15px;text-align: center;margin-top: -15px;">Appel entrant</p>
+  </div>
+  <div style="position: fixed; bottom: 10px;display:flex; justify-content: space-between;align-items: center;width: 100%;
+   height: 200px;padding: 45px  !important; border: px solid red;background: rgba(255, 255, 255, 0);">
+    <img src="/assets/img/refuse.gif" style="width: 40px;" (click)="abort()">
+    <img src="/assets/img/accept.gif" (click)="accept()" style="width: 40px;">
+  </div>
+</div>
+</ion-content>

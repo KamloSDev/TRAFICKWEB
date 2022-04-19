@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191176002684",
+    "project_id": "losto-app",
+    "storage_bucket": "losto-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191176002684:android:22ce094c7003574afe4df9",
+        "android_client_info": {
+          "package_name": "cm.losto.traficweb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191176002684-m2gjkvgbhi1r72o70he7k5md83njbko9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmoXOCG_A4eYeIbKApwGS4HZMu6cU0zgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191176002684-m2gjkvgbhi1r72o70he7k5md83njbko9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

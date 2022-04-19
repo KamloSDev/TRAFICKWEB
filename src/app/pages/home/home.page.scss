@@ -1,0 +1,274 @@
+.map-canvas {
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: transparent;
+
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+
+.show-map {
+  opacity: 1;
+}
+
+
+
+
+.titre_section{
+  display:inline-block;
+  border:px solid red;
+  width:100%;
+  padding-left:10px;
+}
+.left_header, .right_header{
+  border:px solid red;
+  height:20px;
+  width:100px;
+}
+.left_header{
+  float:left;
+  padding:5px;
+  width:150px;
+  // border:1px solid red;
+  // border-left:4px solid #027AF2;
+}
+.right_header{
+  float:right;
+  border:px solid red;
+  text-align:right;
+  display: inline;
+  padding-right:15px;
+}
+.line1_header{
+  border:px solid #0EC9C3;
+  margin-bottom:0px;
+  margin-top:-4px;
+  // font-weight: 500;
+  // font-family:  'Open Sans', 'Helvetica Neue', sans-serif;
+  // font-family: 'Segoe UI',;
+  font-size: 15px;;
+  color:black;
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.label_tous{
+  color:gray;
+  font-size: 14px;;
+  font-weight: 600;
+  font-family: 'Segoe UI',;
+  margin-top:0px;
+  border:px solid red;
+  margin-right:2px;
+  float:right;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.icon_chevron{
+  color:gray;
+  margin-top:2px !important;
+  border:px solid red;
+  float:right;
+  font-size:18px;
+}
+.header_1{
+  color:gray;
+  padding-left: 15px;
+}
+.content_specialites{
+  width:100%;
+  max-height:80px;
+  min-height:80px;
+  border:px solid red;
+  margin-bottom:20px;
+  display: block;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.item_specialite{
+  // border:1px solid #00B3B7 ;
+  width:70px;
+  // height:110px;
+  padding:5px;
+  text-align: center;;
+  float:left;
+  margin-right:0px;
+}
+.item_specialites_spec{
+  border:1px solid blue;
+  height:auto;
+  height:350px !important
+}
+.content_texte_spec{
+  float:right;
+}
+.item_specialite2{
+  width:auto;
+  display:inline-block;
+  padding:8px;
+}
+.content_texte_spec2{
+  border:px solid red;
+  float:left;
+  padding-left:5px;
+}
+
+.content_icon_spec{
+  width:50px;
+  height:50px;
+  padding:3px;
+  background:#06B6BD;
+  border-radius: 8px;;
+  text-align:center;
+  margin: 0 auto;;
+}
+.content_icon_spec2{
+  float:left;
+  width:40px;
+  height:40px;
+}
+.content_icon_spec2{
+  border:px solid red;
+}
+
+.img_spec2{
+  color:white;
+  font-size: 20px;;
+  margin:0 auto;
+  margin-top:8px;
+}
+.titre_spec{
+  margin-top:5px;
+  text-align: center;;
+  font-weight: 700;
+  color:black;
+  font-family: initial;
+  margin-bottom:0px;
+  text-transform: capitalize;
+}
+.label_spec{
+  margin-bottom:2px;
+  margin-top:3px;
+  color:gray;
+  font-size: 12px;;
+  font-weight: 600;
+  text-align: left;
+  font-style: italic;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.titre_spec{
+  font-weight: 600;
+  margin-bottom:0px;
+  margin-top:0px;
+  border:px solid red;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight:500;
+  margin-top:-4px;
+}
+
+
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+}
+.up_item_spec{
+  display: inline-block;
+  text-align: center;
+}
+.scrollmenu{
+  // border:1px solid red;
+  max-height:80px;
+  --padding:0px !important;
+  margin-bottom: 10px;;
+}
+.scrollmenu {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  height:2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0EC9C3;
+
+}
+.top_structures{
+  margin-top:10px;
+}
+
+.first_titre{
+  margin-top:15px;
+}
+.card_intro{
+  // border:1px solid red;
+  height:150px;
+  background: #0EC9C3;
+  // width:98%;
+  // margin:0 auto;
+  border:px solid red;
+  // display: inline-block;
+}
+.left_card, .right_card{
+  // border:1px solid white;
+  width:40%;
+  border:px solid red;
+  float:left;
+  height:150px;
+}
+.right_card{
+  width: 60%;;
+  padding-left: 30px;;
+}
+.img_card{
+  width:180px;
+  margin-top:15px !important;
+  margin-left:20px;
+}
+.texte_intro_card{
+  font-family: 'Poppins', sans-serif;
+  font-weight:500;
+  font-size:20px;
+  color:white;
+  margin:0;
+  margin-top:18px;
+  line-height: 25px;
+  margin-bottom:10px;
+}
+.btn_start{
+  color:white;
+  width:120px;
+  height:30px;
+  border:1px solid white;
+  border-radius:25px;
+  margin:0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+  text-align: center;;
+  line-height: 28px;
+  font-size:14px;
+  text-transform: uppercase;
+}
+.icon_header_home{
+  font-size:23px;
+}
+.icon_medkit{
+  font-size:20px;
+}

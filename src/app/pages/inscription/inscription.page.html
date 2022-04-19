@@ -1,0 +1,47 @@
+
+
+<ion-content class="content">
+  <div class="content_form content_form_insc">
+    <div class="item_connexion">
+      <ion-icon name="person-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Prénom" [(ngModel)]="prenom" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="person-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nom" [(ngModel)]="nom" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="call-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Telephone" [(ngModel)]="telephone" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="person-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nom d'utilisateur" [(ngModel)]="username" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="lock-closed-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Mot de passe" type="password" [(ngModel)]="pass1" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="lock-closed-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Confirmez le mot de passe" type="password" [(ngModel)]="pass2" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion no_border">
+      <span class="label_sexe">Sexe</span>
+      <div class="content_radio">
+        <div class="left_radio">
+          <input type="radio" id="M" value="M" name="rd" class="icon_radio" [(ngModel)]="sexe">&nbsp;
+            <label for="M" class="label_rdio">Masculin</label>
+        </div>
+        <div class="right_radio">
+          <input type="radio" id="dewey" name="rd"  value="F" class="icon_radio" [(ngModel)]="sexe">&nbsp;
+          <label for="dewey" class="label_rdio">Feminin</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content_btn content_btn_insc">
+    <ion-button class="btn_connexion btn_insc" (click)="control()">Inscription</ion-button>
+  </div>
+  <p class="label_kein_account">Déjà membre ? <span class="link_ka" routerLink="/login">Connectez-vous</span></p>
+</ion-content>

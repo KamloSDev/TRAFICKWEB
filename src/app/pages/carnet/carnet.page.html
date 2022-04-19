@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" routerLink="/tab-nav/home">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title_page">Carnet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_ras" *ngIf="this.carnetItems.length == 0" >
+    <p class="content_icon_ras">
+      <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+    </p>
+    <p class="msg_ras">
+      Votre carnet est vide
+    </p>
+  </div>
+  <div class="bloc_consultation" *ngFor="let item of carnetItems">
+    <div class="content_date">
+      <span class="date_carnet">{{item.date_resume | date:'longDate'}}</span>
+    </div>
+    <div class="item_consultation">
+      <p class="titre">Compte rendu de la consultation</p>
+
+        <p class="description_consultation">
+          {{item.resume}}
+        </p>
+
+    </div>
+    <div class="item_ordonance item_consultation" *ngIf="item.ordonance.length>0">
+      <p class="titre">Ordonance</p>
+
+        <p class="description_consultation">
+          {{item.ordonance}}
+        </p>
+    </div>
+    <div class="footer_consultation">
+      <p class="by"> <span class="username_doc_ccarnet">Dr {{item.docteur}}</span></p>
+      <p class="specialite_doc_carnet">{{item.specialite}}</p>
+    </div>
+  </div>
+  <!-- <div class="bloc_consultation">
+    <div class="content_date">
+      <span class="date_carnet">12 Mars 2021</span>
+    </div>
+    <div class="item_consultation">
+      <p class="titre">Compte rendu de la consultation</p>
+      <ul>
+        <li class="description_consultation">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+        </li>
+        <li class="description_consultation">
+          industry. Lorem Ipsum has been the industry's standard dummy
+        </li>
+        <li class="description_consultation">
+          Where does it come from?
+        </li>
+        <li class="description_consultation">
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+        </li>
+      </ul>
+    </div>
+    <div class="item_ordonance item_consultation">
+      <p class="titre">Ordonance</p>
+      <ul>
+        <li class="description_consultation">
+          4 flacons de paracetamol  (prendre 3x2cp/jour)
+        </li>
+        <li class="description_consultation">
+          Effectuer le test  de dépistage du coronavirus
+        </li>
+      </ul>
+    </div>
+    <div class="footer_consultation">
+      <p class="by"> <span class="username_doc_ccarnet">Pr Brenda Tchatchouang</span></p>
+      <p class="specialite_doc_carnet">Chirurgienne</p>
+    </div>
+  </div> -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="printCarnet()">
+    <ion-fab-button class="btn_fab">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

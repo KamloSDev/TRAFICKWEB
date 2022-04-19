@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Structures</ion-title>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only" (click)="toggleSearchBar()" >
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only"  >
+        <ion-icon name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="wrapper-search_bar" *ngIf="this.showBar === 0" >
+    <input type="text" class="search_bar" placeholder="Rechercher..." [(ngModel)]="searchText" (keyup)="searchStructure()">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="main_ras" *ngIf="this.structures.length == 0">
+    <p class="content_icon_ras">
+      <ion-icon name="cloud-offline-outline" class="icon_ras"></ion-icon>
+    </p>
+    <p class="msg_ras" >
+      Aucune Structure
+    </p>
+  </div>
+  <div class="wrapper-structures">
+    <ion-card class="item_doc1"  *ngFor="let item of structures" (click)="goStructure(item)" >
+      <img src={{this.general.STRUCTURES_ROOT+item.logo}} class="avatar_doc">
+      <div class="content_infos_doc">
+        <p class=" structure_name">{{item.nom}}</p>
+        <p class="titre_doc structure_location">{{item.localisation}} </p>
+        <div class="bottom_structure">
+          <div class="wrapper_icon">
+            <ion-icon name="grid-outline" ></ion-icon>
+            <span>{{item.categorie}}</span>
+          </div>
+        </div>
+      </div>
+  </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Login</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="header_connexion">
+    <!-- <div class="content_icon">
+      <ion-icon name="refresh-circle-outline" class="icon_header"></ion-icon>
+    </div> -->
+    <p class="label_connexion title_recouvrement">Mot de passe oublié</p>
+  </div>
+  <p class="sub_welcome sub_w_veif">
+    Remplissez le formulaire ci-dessous afin de réinitialiser votre mot de passe
+  </p>
+  <div class="content_form">
+    <div class="item_connexion">
+      <ion-icon name="person-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nom d'utilisateur" [(ngModel)]="username" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="phone-portrait-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Telephone" type="number" [(ngModel)]="telephone" class="input_connexion"></ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="lock-closed-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Nouveau mot de passe" type="password" [(ngModel)]="pass1" class="input_connexion">
+      </ion-input>
+    </div>
+    <div class="item_connexion">
+      <ion-icon name="lock-closed-outline" class="icon_connexion"></ion-icon>
+      <ion-input placeholder="Confirmez le mot de passe" type="password" [(ngModel)]="pass2" class="input_connexion">
+      </ion-input>
+    </div>
+  </div>
+  <div class="content_btn">
+    <ion-button class="btn_connexion" (click)="checkUser()">Enregistrer</ion-button>
+  </div>
+  <p class="label_kein_account"> <span class="link_ka" routerLink="/login">Connectez-vous</span></p>
+</ion-content>

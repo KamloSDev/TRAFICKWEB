@@ -1,0 +1,330 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Padauk:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Padauk:wght@400;700&family=Ramabhadra&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.label_tab{
+  font-family: 'Poppins', sans-serif !important;
+  font-weight:400;
+  font-size:14px;
+}
+.app_name{
+  font-family: 'Poppins', sans-serif !important;
+  font-weight:500;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+ion-title{
+  font-family: 'Poppins', sans-serif !important;
+  font-weight:400;
+}
+ion-tab-button {
+  --color-selected: #00B3B7;
+  font-family: 'Poppins', sans-serif !important;
+ }
+ ion-toolbar{
+   --background: #00B3B7;;
+   color:white;
+ }
+
+.general_info_alert{
+  .alert-head {
+    // background: red;
+    color: #fff;
+    padding:10px;
+    // margin-bottom: 10px;
+    // display: none;;
+  }
+  .alert-message{
+    color:white;
+    text-align:center;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400;
+    border:px solid red;
+    padding-bottom:5px;
+    // text-transform:lowercase;
+  }
+  .alert-button-group{
+    background: #00B3B7;
+    text-align: center;
+    --padding-bottom:5px !important;
+  }
+  .alert-button{
+    color:#00B3B7;
+    margin:0 auto;
+    background: white !important;
+    height:25px;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 500 !important;
+    border:0px !important;
+    box-shadow: none !important;
+    font-size:12px !important;
+  }
+  .alert-wrapper{
+    background: #00B3B7;
+    color:white;
+    padding-bottom:10px;
+  }
+}
+ion-segment-button {
+  // --background-checked: var(--ion-color-success);
+  // --color-checked: var(--ion-color-success-contrast);
+  --indicator-color: white !important;
+}
+
+
+.toast_error{
+  --background:#FF4127;
+  --border-color:#FF4127;
+  // --border-radius:5px;
+  --button-color:white;
+  --color:#fff;
+  font-family: 'Poppins', sans-serif !important;
+}
+.toast_success{
+  --background:#15B89C;
+  --border-color:#15B89C;
+  // --border-radius:5px;
+  --button-color:white;
+  --color:#fff;
+  font-family: 'Poppins', sans-serif !important;
+}
+.toast_warning{
+  --background:#FFF5C2;
+  --border-color:#FFF5C2;
+  --color: #967F51;
+  font-family: 'Poppins', sans-serif !important;
+}
+.searchbar:focus {
+  outline: none !important;
+  border:px solid red;
+  color:black;
+}
+
+.marker_content>p{
+  margin-bottom:0px;
+}
+.marker_content{
+  font-family: 'Poppins', sans-serif;
+
+  padding-top: 3px;
+}
+.marker_mail, .marker_link{
+  margin-top:-5px;
+  color:#5491F5;
+  color:#00B3B7 !important;
+  font-weight: 500;;
+}
+.marker_title{
+font-size:13px;
+font-weight: bold;
+margin-top:-5px;
+}
+
+
+
+.item_doc1{
+  padding:7px;
+}
+.avatar_doc{
+  width:60px;
+  height:60px;
+  border-radius:15px;
+  border:1px solid #DDD;
+  float:left;
+}
+.content_infos_doc{
+  border:px solid red;
+  max-width:79%;
+  float:left;
+  padding-left:15px;
+}
+.username_doc{
+  border:px solid red;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size:14px;
+  text-transform: capitalize;
+  // color:#027AF2;
+
+  color: black;
+  color:#0EC9C3;
+  color:#2AACFF;
+  margin-bottom:0px;
+  margin-top:3px;
+  font-family: 'Poppins', sans-serif;
+  // text-transform: uppercase;
+}
+.structure_doc, .titre_doc{
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family: inherit;
+  font-weight: 400;;
+  font-size: 13px;
+  // color:#00B3B7;
+  margin-bottom:2px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+  font-weight:400;
+
+}
+.icon_stars{
+  // color:orange;
+  color:#FCBC40;
+}
+.outline{
+  color:#ecdda3;
+}
+.filled_star{
+  color:#FCBC40;
+}
+.structure_doc{
+  text-decoration: underline;
+}
+.content_docs{
+  border:px solid red;
+  padding:10px;
+  max-height: 99%;;
+  overflow-y: auto;
+}
+.fond_docs{
+  background: #EEEEEE;
+  background:white;
+  background: #F2F6F7;
+  height:100%;
+}
+.header_docs{
+  padding:10px;
+  // border:1px solid red;
+  padding-bottom:0px;
+}
+.searchbar_doc{
+  --border-radius:20px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+
+}
+
+.wrapper-structures .structure_name{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 15px;
+  margin: 0px;
+  // margin: 10px 0px 0px;
+  // border: 1px solid red;
+}
+.wrapper-structures .structure_location{
+  font-family: 'Poppins', sans-serif;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+}
+
+.wrapper-structures .structure_location::first-letter{
+  text-transform: capitalize;
+}
+.wrapper-structures .wrapper_icon{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.wrapper_icon >ion-icon{
+  font-size: 14px;
+}
+.wrapper_icon>span{
+  // color: black;
+  margin-left: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #737373 !important;
+
+}
+.wrapper_button{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+.bottom_structure{
+  width: 100%;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #0EC9C3;
+}
+.wrapper_button>ion-icon{
+  height: 15px;
+}
+
+.wrapper-search_bar{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
+  padding-bottom: 5px;
+}
+.search_bar{
+  outline: 0px;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+  height: 38px;
+  border: 0px;
+  padding-left: 15px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #737373 !important;
+}
+
+
+// ion-alert:not(.select-alert) {
+//   --background: #222428;
+//   --ion-text-color: white;
+
+//   button {
+//       color: white !important;
+//       font-size: 20px !important;
+//   }
+
+//   .alert-message {
+//       color: #ddd;
+//   }
+// }
+
+
